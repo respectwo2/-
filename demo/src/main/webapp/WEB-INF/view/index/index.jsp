@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Search Page</title>
     <style>
-        /* 스타일링 코드 */
         #sidebar {
             float: left;
             width: 30%;
@@ -13,7 +12,7 @@
         #searchResults {
             width: 70%;
             height: 200px;
-            overflow-y: scroll;
+           /*  overflow-y: scroll; */
         }
 
         #mainContent {
@@ -39,32 +38,39 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // 검색 폼의 submit 이벤트 리스너
-            $("#searchForm").submit(function(e) {
-                e.preventDefault(); // 기본 submit 이벤트 막기
+<script>
+$(document).ready(function() {
+    $("#searchForm").submit(function(e) {
+        e.preventDefault(); 
 
-                // 검색어 가져오기
-                var searchTerm = $("#searchInput").val();
+        var searchTerm = $("#searchInput").val();
 
-                // AJAX 요청 보내기
-                $.ajax({
-                    url: "exchange?ticker={ticker}", // 실제 검색 결과를 받을 URL로 대체해야 합니다.
-                    type: "GET",
-                    data: { search: searchTerm }, // 검색어를 파라미터로 전달
-                    success: function(response) {
-                        // 검색 결과를 받았을 때 처리하는 로직
-                        // 받은 데이터를 활용하여 검색 결과 목록 업데이트
-                        $("#searchResults").html(response); // 받은 데이터를 목록에 적용
-                    },
-                    error: function(error) {
-                        // 에러 처리 로직
-                        console.log(error);
-                    }
-                });
-            });
+        var data = {};
+
+        if (searchTerm) {
+            if (isNaN(searchTerm)) {
+                data.ticker = searchTerm;
+            } else {
+                data.ticker_id = searchTerm;
+            }
+        }
+
+        if (searchTerm && isNaN(searchTerm)) {
+            data.ticker_name = searchTerm;
+        }
+
+        $.ajax({
+            url: "exchange/tickerinfo",
+            type: "GET",
+            data: data,
+            success: function(response) {
+                $("#searchResults").html(response); 
+            },
+            error: function(error) {
+                console.log(error);
+            }
         });
-    </script>
-</body>
+    });
+});
+</script></body>
 </html>

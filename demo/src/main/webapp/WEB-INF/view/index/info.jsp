@@ -2,26 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>    
 <table>
         <tr>
-            <th>Ticker ID</th>
-            <th>Ticker</th>
-            <th>Ticker Name</th>
-            <th>Ticker Issuer</th>
-            <th>Ticker TFeature</th>
-            <th>Ticker Info</th>
-        </tr>
-        <tr>
-            <td><%= coinInfo.getTicker_id() %></td>
-            <td><%= coinInfo.getTicker() %></td>
-            <td><%= coinInfo.getTicker_name() %></td>
-            <td><%= coinInfo.getTicker_issuer() %></td>
-            <td><%= coinInfo.getTicker_tfeature() %></td>
-            <td><%= coinInfo.getTicker_info() %></td>
+            <td>${ticker}</td>
+            <td>${ticker_name}</td>
+            <td>${ticker_issuer}</td>
+            <td>${ticker_tfeature}</td>
         </tr>
     </table>
 

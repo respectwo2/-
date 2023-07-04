@@ -1,28 +1,43 @@
+<!-- main.jsp -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Search Page</title>
+    <style>
+        #mainContent {
+            float: right;
+            width: 70%;
+        }
+        
+        #sidebar {
+            float: left;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <%@ include file="sidebar.jsp" %>
+    </div>
+    <div id="mainContent">
 <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://kr.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">트레이딩뷰에서 모든 시장 추적</span></a></div>
+  <div class="tradingview-widget-copyright"><a href="https://kr.tradingview.com/" rel="noopener nofollow" target="_blank"></a></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
   {
   "symbols": [
     [
-      "Apple",
-      "AAPL|1D"
-    ],
-    [
-      "Google",
-      "GOOGL|1D"
-    ],
-    [
-      "Microsoft",
-      "MSFT|1D"
+      "UPBIT:${ticker}KRW|1D"
     ]
   ],
   "chartOnly": false,
   "width": 1000,
   "height": 500,
   "locale": "kr",
-  "colorTheme": "light",
+  "colorTheme": "light",	
   "autosize": false,
   "showVolume": false,
   "showMA": false,
@@ -54,3 +69,7 @@
   </script>
 </div>
 <!-- TradingView Widget END -->
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
