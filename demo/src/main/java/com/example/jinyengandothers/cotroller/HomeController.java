@@ -25,7 +25,7 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String index() {
-		return "/index";
+		return "redirect:/main?tvwidgetsymbol=BTC";
 	}
 
 	@GetMapping("/test")

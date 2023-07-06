@@ -15,7 +15,7 @@ public class IndexController {
 	@Autowired
 	private IndexService indexService;
 	
-
+	
 	@GetMapping("/main")
 	public String showMainPage(@RequestParam("tvwidgetsymbol") String ticker, Model model) {
 	    if (ticker.startsWith("UPBIT:") && ticker.endsWith("KRW") && ticker.length() > 10) {
