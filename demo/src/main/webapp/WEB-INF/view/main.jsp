@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Search Page</title>
+    <title>Landing Page</title>
     <style>
         #mainContent {
             float: right;
@@ -15,12 +15,23 @@
             float: left;
             width: 30%;
         }
+        
+        #searchbar{
+        	float:left;
+        	width: 30%;
+        }
     </style>
 </head>
 <body>
-    <div id="sidebar">
-        <%@ include file="sidebar.jsp" %>
+	<div id="topbar">
+	<%@ include file="topbar.jsp" %>
     </div>
+     <div id="searchbar">
+    	<%@ include file="index/index.jsp" %>
+    </div>
+    
+   
+    
     <div id="mainContent">
 <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
@@ -70,6 +81,10 @@
 </div>
 <!-- TradingView Widget END -->
 </div>
+<div id="sidebar">
+        <%@ include file="sidebar.jsp" %>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>

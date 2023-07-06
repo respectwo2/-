@@ -32,6 +32,12 @@ public class IndexServiceImpl implements IndexService {
 	public CoinInfo getCoinInfoByTickerName(String ticker_name) {
 		return coininfoMapper.getCoinInfoByTickerName(ticker_name);
 	}
+
+	@Override
+	public CoinInfo getCoinInfoBySearch(String search) {
+		return coininfoMapper.getTickerBySearch(search);
+	}
+	
 }
 
 

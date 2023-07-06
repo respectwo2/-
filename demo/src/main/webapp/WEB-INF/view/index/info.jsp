@@ -3,9 +3,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>    
+<div id="searchresult">
 <table>
         <tr>
             <td>${ticker}</td>
@@ -14,6 +15,6 @@
             <td>${ticker_tfeature}</td>
         </tr>
     </table>
-
+</div>
 </body>
 </html>

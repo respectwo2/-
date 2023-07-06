@@ -29,17 +29,31 @@
             <button type="submit">Search</button>
         </form>
         <div id="searchResults">
-            <!-- 검색 결과를 동적으로 업데이트할 목록 -->
         </div>
     </div>
 
     <div id="mainContent">
-        <!-- 검색 결과에 따른 메인 페이지 -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
 $(document).ready(function() {
+    $("#searchForm").submit(function(e) {
+        e.preventDefault(); 
+
+        var searchTerm = $("#searchInput").val();
+        var url = "/exchange/tickerinfo?search=" + searchTerm;
+        window.location.href = url;
+    });
+});
+
+
+
+
+//AJAX로 정보 띄우는 코드
+
+ /* $(document).ready(function() {
     $("#searchForm").submit(function(e) {
         e.preventDefault(); 
 
@@ -60,7 +74,7 @@ $(document).ready(function() {
         }
 
         $.ajax({
-            url: "exchange/tickerinfo",
+            url: "/exchange/tickerinfo",
             type: "GET",
             data: data,
             success: function(response) {
@@ -71,6 +85,6 @@ $(document).ready(function() {
             }
         });
     });
-});
+}); */
 </script></body>
 </html>

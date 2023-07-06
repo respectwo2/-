@@ -10,4 +10,6 @@ public interface IndexService {
 
 	public CoinInfo getCoinInfoByTickerName(String ticker_name); 
 
+	public CoinInfo getCoinInfoBySearch(String search);
+	
 }

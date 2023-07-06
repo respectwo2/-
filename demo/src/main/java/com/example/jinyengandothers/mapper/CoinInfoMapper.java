@@ -18,4 +18,8 @@ public interface CoinInfoMapper {
 	@Select("SELECT * FROM coininfo WHERE ticker_name = #{ticker_name}")
 	CoinInfo getCoinInfoByTickerName(@Param("ticker_name") String ticker_name);
 
+    @Select("SELECT ticker FROM coininfo WHERE ticker = #{search} OR ticker_name = #{search}")
+    CoinInfo getTickerBySearch(@Param("search") String search);
+
+	
 }
