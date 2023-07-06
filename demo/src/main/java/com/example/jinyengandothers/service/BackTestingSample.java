@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.ta4j.core.BacktestExecutor;
@@ -28,12 +30,14 @@ import org.ta4j.core.num.Num;
 import org.ta4j.core.reports.TradingStatement;
 import org.ta4j.core.rules.CrossedUpIndicatorRule;
 
+import com.example.jinyengandothers.cotroller.HomeController;
 import com.example.jinyengandothers.dao.CoinPriceDao;
 import com.example.jinyengandothers.dto.CoinPrice;
 
 @Service
 public class BackTestingSample {
     private final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final Logger LOG = LoggerFactory.getLogger(BackTestingSample.class);
 	
 	@Autowired
 	private CoinPriceDao coinPriceDao;
@@ -69,9 +73,10 @@ public class BackTestingSample {
 	private List<Strategy> createStrategies(BarSeries series){
 	    List<Strategy> strategies = new ArrayList<>();
 	    
-	    int barCountStart = 0;
-	    int barCountStop = series.getBarCount();
-	    int barCountStep = 1;
+	    int barCountStart = 3;
+	    int barCountStop = 400;
+	    int barCountStep = 3;
+	    LOG.info(series.getBarCount()+"");
 	    	    
 	    for (int shortBarCount = barCountStart; shortBarCount <= barCountStop; shortBarCount += barCountStep) {
 	    	for (int longBarCount = shortBarCount + barCountStep; longBarCount <= barCountStop; longBarCount += barCountStep) {
@@ -90,9 +95,10 @@ public class BackTestingSample {
 		CostModel transactionCostModel = new LinearTransactionCostModel(slippageAndFee);
 		
 		BacktestExecutor backtestExecutor = new BacktestExecutor(targetSeries, transactionCostModel, new ZeroCostModel());
-		List<TradingStatement> tradingStatements = backtestExecutor.execute(targetStrategies, DecimalNum.valueOf(50),Trade.TradeType.BUY);
+		List<TradingStatement> tradingStatements = backtestExecutor.execute(targetStrategies, DecimalNum.valueOf(50),Trade.TradeType.SELL);
 		
 		StringBuilder result = new StringBuilder();
+//		result.append(tradingStatements.toString());
 		for(TradingStatement t : tradingStatements) {
 			result.append(t.getStrategy().getName())
 				.append(System.lineSeparator())
