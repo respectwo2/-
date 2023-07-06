@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
-
 import com.example.jinyengandothers.dao.CoinPriceDao;
 import com.example.jinyengandothers.dto.NewsDto;
 import com.example.jinyengandothers.service.BackTestingSample;
@@ -28,7 +27,6 @@ public class HomeController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
-	
 	@Autowired
 	private CoinPriceDao coinPriceDao;
 	
