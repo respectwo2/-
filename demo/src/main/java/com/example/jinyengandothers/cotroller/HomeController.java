@@ -20,10 +20,22 @@ import com.example.jinyengandothers.service.CryptoCompareNewsService;
 @Controller
 public class HomeController {
 
+	private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
+
+	
+	@Autowired
+	private CoinPriceDao coinPriceDao;
+	
+	@Autowired
+	private BackTestingSample bts;
+	
+	@Autowired
+	private BackTestingSample2 bts2;
+	
 	@Autowired
 	CryptoCompareNewsService compareNewsService;
 	
-	@GetMapping("/")
+	@GetMapping("/1")
 	public String index() {
 		return "redirect:/main?tvwidgetsymbol=BTC";
 	}
@@ -50,5 +62,21 @@ public class HomeController {
 		List<NewsDto> newsList =  compareNewsService.getNews(ticker);
 		model.addAttribute("newsList", newsList);
 		return "testt4";
+	}
+	@GetMapping("/")
+	public String index(Model model) {
+		
+		model.addAttribute("ticker","BTC");
+//		LOG.info(bts.printBackTestResult("ALGO", "", 0.001, 0.005).toString());
+		bts2.runPython();
+		return "index";
+	}
+	
+	@GetMapping("/{ticker_name}")
+	public String index1(Model model, @PathVariable("ticker_name")String ticker_name) {
+		
+		model.addAttribute(ticker_name);
+		
+		return "index";
 	}
 }
