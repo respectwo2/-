@@ -3,29 +3,48 @@ package com.example.jinyengandothers.cotroller;
 import java.util.List;
 
 import org.apache.catalina.connector.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.jinyengandothers.dto.NewsDto;
 import com.example.jinyengandothers.service.CryptoCompareNewsService;
+import com.example.jinyengandothers.service.BackTestingSample;
+import com.example.jinyengandothers.service.BackTestingSample2;
+import com.example.jinyengandothers.dao.CoinPriceDao;
+
 
 
 @Controller
 public class HomeController {
 
+	private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
+
+	
+	@Autowired
+	private CoinPriceDao coinPriceDao;
+	
+	@Autowired
+	private BackTestingSample bts;
+	
+	@Autowired
+	private BackTestingSample2 bts2;
+	
 	@Autowired
 	CryptoCompareNewsService compareNewsService;
 	
-	@GetMapping("/")
+	@GetMapping("/1")
 	public String index() {
-		return "/index";
+		return "redirect:/main?tvwidgetsymbol=BTC";
 	}
 
 	@GetMapping("/test")
@@ -50,5 +69,21 @@ public class HomeController {
 		List<NewsDto> newsList =  compareNewsService.getNews(ticker);
 		model.addAttribute("newsList", newsList);
 		return "testt4";
+	}
+	@GetMapping("/")
+	public String index(Model model) {
+		
+		model.addAttribute("ticker","BTC");
+//		LOG.info(bts.printBackTestResult("ALGO", "", 0.001, 0.005).toString());
+		bts2.runPython();
+		return "index";
+	}
+	
+	@GetMapping("/{ticker_name}")
+	public String index1(Model model, @PathVariable("ticker_name")String ticker_name) {
+		
+		model.addAttribute(ticker_name);
+		
+		return "index";
 	}
 }
