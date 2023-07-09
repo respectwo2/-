@@ -1,4 +1,6 @@
 package com.example.jinyengandothers.service;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import com.example.jinyengandothers.entity.CoinInfo;
 
@@ -11,5 +13,7 @@ public interface IndexService {
 	public CoinInfo getCoinInfoByTickerName(String ticker_name); 
 
 	public CoinInfo getCoinInfoBySearch(String search);
+	
+	public List<String> getAllCoinTicker();
 	
 }
