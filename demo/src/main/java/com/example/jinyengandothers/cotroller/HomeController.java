@@ -83,4 +83,10 @@ public class HomeController {
 		
 		return "index";
 	}
+	@GetMapping("/chart")
+	public String charts(Model model) {
+		return "charts";
+	}
+	
+	
 }

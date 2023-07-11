@@ -29,7 +29,9 @@
      <div id="searchbar">
     	<%@ include file="index/index.jsp" %>
     </div>
-    
+    <div id="charst">
+    	<%@ include file="charts.jsp" %>
+    </div>
    
     
     <div id="mainContent">
