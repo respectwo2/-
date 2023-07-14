@@ -28,5 +28,7 @@ public class IndexServiceImpl implements IndexService {
     public List<UBAIPrice> getAllUBAIPrices() {
         return indexpriceMapper.getAllUBAIPrices();
     }
+    
+    
 
 }

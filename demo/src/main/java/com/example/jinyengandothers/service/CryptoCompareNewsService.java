@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class CryptoCompareNewsService {
-	
+
 	public static String apiKey = "08ef7bd6e506083444b129d43f1ee6db62a6d145558d9b2ee68835bd32789a41";
 
 	public List<NewsDto> getNews(String catgories) {
@@ -38,7 +38,11 @@ public class CryptoCompareNewsService {
 					for (JsonNode newsNode : dataNode) {
 						NewsDto newsDto = new NewsDto();
 						newsDto.setTitle(newsNode.get("title").asText());
-						newsDto.setBody( newsNode.get("body").asText());
+						String body = newsNode.get("body").asText();
+						if (body.length() > 500) {
+							body = body.substring(0, 499);
+						}
+						newsDto.setBody(body);
 						newsDto.setArticleUrl(newsNode.get("url").asText());
 						newsDto.setImgUrl(newsNode.get("imageurl").asText());
 						newsDto.setCategories(newsNode.get("categories").asText());
@@ -51,8 +55,6 @@ public class CryptoCompareNewsService {
 		} else {
 			System.out.println(responseEntity.getStatusCode());
 		}
-		
-		
 
 		return newsList;
 	}

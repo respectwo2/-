@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CoinInfoService {
 
 	@Autowired
-	IndexServiceImpl indexServiceImpl; // CoinInfoMapper
+	SearchServiceImpl searchServiceImpl; // CoinInfoMapper
 
 	private CoinWeekChangeDto[] coins;
 
@@ -36,7 +36,7 @@ public class CoinInfoService {
 	}
 
 	public List<String> getAlltickers() {
-		return indexServiceImpl.getAllCoinTicker();
+		return searchServiceImpl.getAllCoinTicker();
 	}
 
 	public CoinWeekChangeDto[] getWeeklyIncreaseRate() {

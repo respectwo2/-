@@ -64,6 +64,9 @@ public class HomeController {
 		// news api
 		List<NewsDto> newsList = compareNewsService.getNews(ticker);
 		model.addAttribute("newsList", newsList);
+		for(NewsDto news : newsList) {
+			System.out.println(news.getTitle());
+		}
 		return "testt4";
 	}
 
