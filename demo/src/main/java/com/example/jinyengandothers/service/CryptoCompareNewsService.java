@@ -3,6 +3,7 @@ package com.example.jinyengandothers.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class CryptoCompareNewsService {
+	
 	public static String apiKey = "08ef7bd6e506083444b129d43f1ee6db62a6d145558d9b2ee68835bd32789a41";
 
 	public List<NewsDto> getNews(String catgories) {
@@ -36,9 +38,9 @@ public class CryptoCompareNewsService {
 					for (JsonNode newsNode : dataNode) {
 						NewsDto newsDto = new NewsDto();
 						newsDto.setTitle(newsNode.get("title").asText());
+						newsDto.setBody( newsNode.get("body").asText());
 						newsDto.setArticleUrl(newsNode.get("url").asText());
 						newsDto.setImgUrl(newsNode.get("imageurl").asText());
-						newsDto.setBody(newsNode.get("body").asText());
 						newsDto.setCategories(newsNode.get("categories").asText());
 						newsList.add(newsDto);
 					}
@@ -49,6 +51,8 @@ public class CryptoCompareNewsService {
 		} else {
 			System.out.println(responseEntity.getStatusCode());
 		}
+		
+		
 
 		return newsList;
 	}

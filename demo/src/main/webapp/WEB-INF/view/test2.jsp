@@ -13,6 +13,8 @@
 <p id="binance_price"></p>
 <p>김프</p>
 <p id="kimp"></p>
+<p>등락률</p>
+<p id="change_rate"></p>
 
 <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
@@ -130,10 +132,28 @@
         else document.getElementById("kimp").style.color = 'red';
 
         document.getElementById("kimp").textContent = kimchi + '%';
+        
+        
+        document.getElementById("change_rate").textContent = jsonData.signed_change_rate*100;
       };
 
       reader.readAsText(blob);
     };
+    
+
+    baseUrl = "https://widgets.cryptocompare.com/";
+    var scripts = document.getElementsByTagName("script");
+    var embedder = scripts[ scripts.length - 1 ];
+    (function (){
+    var appName = encodeURIComponent(window.location.hostname);
+    if(appName==""){appName="local";}
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.async = true;
+    var theUrl = baseUrl+'serve/v1/coin/feed?fsym=${ticker}&tsym=KRW';
+    s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+    embedder.parentNode.appendChild(s);
+    })();
     
   </script>
 
