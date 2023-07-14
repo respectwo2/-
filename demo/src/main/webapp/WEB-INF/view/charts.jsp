@@ -10,7 +10,7 @@
   <div id="chart-container">
   <script>
   (async () => {
-    const response = await fetch('/charts');
+    const response = await fetch('/chartsJS');
     const data = await response.json();
 
     Highcharts.chart('chart-container', {

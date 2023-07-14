@@ -21,22 +21,24 @@ public class SearchController {
 	    if (ticker.startsWith("UPBIT:") && ticker.endsWith("KRW") && ticker.length() > 10) {
 	        ticker = ticker.substring(6, ticker.length() - 3);
 	    }
+	    
+	    CoinInfo ticker1 = searchService.getCoinInfoBySearch(ticker);
+	    
+	    if (ticker1 == null) {
+	        return "error/error";
+	    }
+	    
+	    String tickerinfo = ticker1.getTickerInfo();
+	    String tickerissuer = ticker1.getTickerIssuer();
+
+	    model.addAttribute("info",tickerinfo);
+	    model.addAttribute("issuer",tickerissuer);
 	    model.addAttribute("ticker", ticker);
+
 	    return "main";
 	}
 	
-	@GetMapping("/exchange")
-	public String exchangeTicker(@RequestParam("ticker") String ticker, Model model) {
-		model.addAttribute("ticker", ticker);
-		return "/exchange/ticker";
-	}
-	
-	@GetMapping("/exchange/ticker")
-	public String exchangeTickerSearch(Model model) {
-		return "index/index";
-	}
-	
-	@GetMapping("/exchange/tickerinfo")
+	@GetMapping("/tickerinfo")
 	public String exchangeTickerSearch(@RequestParam("search") String search, Model model) {
 	    CoinInfo ticker = searchService.getCoinInfoBySearch(search);
 	    

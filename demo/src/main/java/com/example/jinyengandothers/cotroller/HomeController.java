@@ -76,17 +76,5 @@ public class HomeController {
 		return "index";
 	}
 	
-	@GetMapping("/{ticker_name}")
-	public String index1(Model model, @PathVariable("ticker_name")String ticker_name) {
-		
-		model.addAttribute(ticker_name);
-		
-		return "index";
-	}
-	@GetMapping("/chart")
-	public String charts(Model model) {
-		return "charts";
-	}
-	
-	
+
 }

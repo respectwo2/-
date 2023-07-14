@@ -32,7 +32,7 @@ public class IndexController {
         this.indexService = indexService;
     }
 
-    @GetMapping("/charts")
+    @GetMapping("/chartsJS")
     @ResponseBody
     public Map<String, List<Object[]>> showChart() {
         List<UBAIPrice> ubaiPrices = indexService.getAllUBAIPrices();
@@ -61,15 +61,13 @@ public class IndexController {
         Map<String, List<Object[]>> dataMap = new HashMap<>();
         dataMap.put("ubaiData", ubaiData);
         dataMap.put("ubmiData", ubmiData);
-
         return dataMap;
     }
-    
-    @GetMapping("/charts1")
-    public String testshow() {
-		return "/charts";
-    	
-    }
+	@GetMapping("/charts")
+	public String charts(Model model) {
+		return "charts";
+	}
+	
 }
     
 

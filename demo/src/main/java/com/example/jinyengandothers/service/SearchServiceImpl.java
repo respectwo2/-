@@ -37,6 +37,16 @@ public class SearchServiceImpl implements SearchService {
 	public CoinInfo getCoinInfoBySearch(String search) {
 		return coininfoMapper.getTickerBySearch(search);
 	}
+
+	@Override
+	public CoinInfo getTickerInfoByTicker(String search) {
+		return coininfoMapper.getTickerInfoByTicker(search);
+	}
+
+	@Override
+	public CoinInfo getTickerIssuerByTicker(String search) {
+		return coininfoMapper.getTickerIssuerByTicker(search);
+	}
 	
 }
 

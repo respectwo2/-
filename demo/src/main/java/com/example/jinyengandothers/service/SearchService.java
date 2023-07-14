@@ -12,4 +12,7 @@ public interface SearchService {
 
 	public CoinInfo getCoinInfoBySearch(String search);
 	
+	public CoinInfo getTickerInfoByTicker(String search);
+	
+	public CoinInfo getTickerIssuerByTicker(String search);
 }

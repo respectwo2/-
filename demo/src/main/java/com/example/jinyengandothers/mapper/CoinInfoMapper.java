@@ -18,8 +18,13 @@ public interface CoinInfoMapper {
 	@Select("SELECT * FROM coininfo WHERE ticker_name = #{tickerName}")
 	CoinInfo getCoinInfoByTickerName(@Param("tickerName") String tickerName);
 
-    @Select("SELECT ticker FROM coininfo WHERE ticker = #{search} OR ticker_name = #{search}")
+    @Select("SELECT * FROM coininfo WHERE ticker = #{search} OR ticker_name = #{search}")
     CoinInfo getTickerBySearch(@Param("search") String search);
+    
+    @Select("Select ticker_info from coininfo where ticker = #{search} OR ticker_name = #{search}")
+    CoinInfo getTickerInfoByTicker(@Param("ticker") String search);
 
-	
+    @Select("Select ticker_issuer from coininfo where ticker = #{search} OR ticker_name = #{search}")
+    CoinInfo getTickerIssuerByTicker(@Param("ticker") String search);
+
 }
