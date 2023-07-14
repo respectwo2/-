@@ -38,7 +38,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/testt4.html" aria-expanded="false">
+              <a class="sidebar-link" href="coinNews" aria-expanded="false">
                 <span>
                   <i class="ti ti-alert-circle"></i>
                 </span>

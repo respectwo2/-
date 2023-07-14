@@ -1,8 +1,13 @@
 package com.example.jinyengandothers.service;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Locale;import org.slf4j.helpers.CheckReturnValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +18,9 @@ import com.example.jinyengandothers.dto.NewsDto;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class CryptoCompareNewsService {
 
@@ -46,6 +54,9 @@ public class CryptoCompareNewsService {
 						newsDto.setArticleUrl(newsNode.get("url").asText());
 						newsDto.setImgUrl(newsNode.get("imageurl").asText());
 						newsDto.setCategories(newsNode.get("categories").asText());
+						newsDto.setSource(newsNode.get("source_info").get("name").asText());
+						String koreanTime = convertToKoreanTime(newsNode.get("published_on").asText());
+						newsDto.setTime(koreanTime);
 						newsList.add(newsDto);
 					}
 				}
@@ -53,9 +64,21 @@ public class CryptoCompareNewsService {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println(responseEntity.getStatusCode());
+			log.info(responseEntity.getStatusCode().toString());
 		}
 
 		return newsList;
+	}
+
+	public static String convertToKoreanTime(String timestamp) {
+		long millis = Long.parseLong(timestamp);
+
+		ZonedDateTime utcDateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(millis), ZoneId.of("UTC"))
+				.atZone(ZoneId.of("UTC"));
+
+		ZonedDateTime koreanDateTime = utcDateTime.withZoneSameInstant(ZoneId.of("Asia/Seoul"));
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withLocale(Locale.KOREA);
+		return koreanDateTime.format(formatter);
 	}
 }

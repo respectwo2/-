@@ -1,5 +1,6 @@
 package com.example.jinyengandothers.cotroller;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.catalina.connector.Response;
@@ -59,15 +60,12 @@ public class HomeController {
 		return "test3";
 	}
 
-	@GetMapping("/test43")
-	public String test4(Model model, @RequestParam(value = "ticker", defaultValue = "BTC") String ticker) { // CryptoCompare
+	@GetMapping("/coinNews")
+	public String test4(Model model, @RequestParam(value = "category", defaultValue = "") String category) { // CryptoCompare
 		// news api
-		List<NewsDto> newsList = compareNewsService.getNews(ticker);
+		List<NewsDto> newsList = compareNewsService.getNews(category);
 		model.addAttribute("newsList", newsList);
-		for(NewsDto news : newsList) {
-			System.out.println(news.getTitle());
-		}
-		return "testt4";
+		return "coinNews";
 	}
 
 	@GetMapping("/weeklyIncreaseRate")

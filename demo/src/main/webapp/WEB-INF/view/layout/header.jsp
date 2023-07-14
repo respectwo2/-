@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -20,13 +21,15 @@
 <link rel="shortcut icon" type="image/png"
 	href="../images/logos/favicon.png" />
 <link rel="stylesheet" href="../css/styles.min.css" />
+<script src="https://code.jquery.com/jquery-3.7.0.js"
+	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<!--  Body Wrapper -->
 	<div class="page-wrapper" id="main-wrapper" data-layout="vertical"
 		data-navbarbg="skin6" data-sidebartype="full"
 		data-sidebar-position="fixed" data-header-position="fixed">
-
 		<%@include file="leftSidebar.jsp"%>
 		<!--  Main wrapper -->
 		<div class="body-wrapper">
