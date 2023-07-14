@@ -3,8 +3,8 @@ package com.example.jinyengandothers.cotroller;
 import java.util.List;
 
 import org.apache.catalina.connector.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.mybatis.logging.Logger;
+import org.mybatis.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.jinyengandothers.dto.CoinWeekChangeDto;
+import com.example.jinyengandothers.dao.CoinPriceDao;
 import com.example.jinyengandothers.dto.NewsDto;
 import com.example.jinyengandothers.service.CryptoCompareNewsService;
 import com.example.jinyengandothers.service.CoinInfoService;
@@ -24,6 +25,11 @@ import com.example.jinyengandothers.dao.CoinPriceDao;
 
 @Controller
 public class HomeController {
+
+	private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
+
+	@Autowired
+	private CoinPriceDao coinPriceDao;
 	
 	@Autowired
 	CryptoCompareNewsService compareNewsService;
@@ -68,5 +74,4 @@ public class HomeController {
 		return "weeklyIncreaseRate";
 	}
 	
-
 }

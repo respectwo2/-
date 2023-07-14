@@ -1,18 +1,13 @@
 package com.example.jinyengandothers.service;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-import com.example.jinyengandothers.entity.CoinInfo;
+import com.example.jinyengandothers.entity.UBAIPrice;
+import com.example.jinyengandothers.entity.UBMIPrice;
 
 public interface IndexService {
 
-	public CoinInfo getCoinInfoById(int ticker_id); 
+	public List<UBMIPrice> getAllUBMIPrices();
 	
-	public CoinInfo getCoinInfoByTicker(String ticker); 
-
-	public CoinInfo getCoinInfoByTickerName(String ticker_name); 
-
-	public CoinInfo getCoinInfoBySearch(String search);
+	public List<UBAIPrice> getAllUBAIPrices();
 	
-	public List<String> getAllCoinTicker();
 }
