@@ -85,22 +85,6 @@
 			<version>8.0.33</version>
 		</dependency>
 
-		<!-- gpt-->
-		<dependency>
-			<groupId>com.theokanning.openai-gpt3-java</groupId>
-			<artifactId>service</artifactId>
-			<version>0.12.0</version>
-		</dependency>
-
-		<!-- bard-->
-		<dependency>
-			<groupId>com.pkslow</groupId>
-			<artifactId>google-bard</artifactId>
-			<version>0.3.3</version>
-		</dependency>
-
-
-
 	</dependencies>
 
 	<build>

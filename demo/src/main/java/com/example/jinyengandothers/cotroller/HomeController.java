@@ -24,15 +24,13 @@ import com.example.jinyengandothers.dao.CoinPriceDao;
 
 @Controller
 public class HomeController {
-
-	private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
-
+	
 	@Autowired
 	CryptoCompareNewsService compareNewsService;
-
+	
 	@Autowired
 	CoinInfoService coinInfoService;
-
+	
 	@GetMapping("/1")
 	public String index() {
 		return "redirect:/main?tvwidgetsymbol=BTC";
@@ -40,8 +38,6 @@ public class HomeController {
 
 	@GetMapping("/test")
 	public String realChart(Model model) {
-		List<String> coins = coinInfoService.getAlltickers();
-		model.addAttribute("coins", coins);
 		return "test";
 	}
 
@@ -71,4 +67,6 @@ public class HomeController {
 		model.addAttribute("coins", coins);
 		return "weeklyIncreaseRate";
 	}
+	
+
 }

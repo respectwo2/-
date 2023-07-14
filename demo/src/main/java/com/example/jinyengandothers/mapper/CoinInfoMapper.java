@@ -22,7 +22,7 @@ public interface CoinInfoMapper {
 
     @Select("SELECT ticker FROM coininfo WHERE ticker = #{search} OR ticker_name = #{search}")
     CoinInfo getTickerBySearch(@Param("search") String search);
-
+    
     @Select("SELECT ticker FROM coininfo")
     List<String> getAllTicker();
     

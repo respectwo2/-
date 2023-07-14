@@ -16,4 +16,5 @@ public interface CoinPriceMapper {
 	
 	@Select("select end_time, open_price, high_price, low_price, close_price, volume from coin_price where coin_ticker=#{ticker}")
 	List<CoinPrice> selectCoinAllPrice(@Param("ticker") String coinTicker);
+	
 }
