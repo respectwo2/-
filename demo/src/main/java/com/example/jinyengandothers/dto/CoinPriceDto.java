@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 
 @Data
-public class CoinPrice {
+public class CoinPriceDto {
 	
 	private int coinPriceId, coinId;
 	private String coinTicker;
@@ -18,7 +18,7 @@ public class CoinPrice {
 //coin_price_id int auto_increment,
 //coin_id int,
 //coin_ticker varchar2(10),
-//end_time bigint,
+//end_time varchar2(50),
 //open_price double,
 //high_price double,
 //low_price double,
