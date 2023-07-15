@@ -18,11 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.jinyengandothers.dto.NewsDto;
 import com.example.jinyengandothers.service.CryptoCompareNewsService;
-import com.example.jinyengandothers.service.BackTestingSample;
-import com.example.jinyengandothers.service.BackTestingSample2;
 import com.example.jinyengandothers.dao.CoinPriceDao;
-
-
 
 @Controller
 public class HomeController {
@@ -32,13 +28,7 @@ public class HomeController {
 	
 	@Autowired
 	private CoinPriceDao coinPriceDao;
-	
-	@Autowired
-	private BackTestingSample bts;
-	
-	@Autowired
-	private BackTestingSample2 bts2;
-	
+		
 	@Autowired
 	CryptoCompareNewsService compareNewsService;
 	
@@ -75,7 +65,6 @@ public class HomeController {
 		
 		model.addAttribute("ticker","BTC");
 //		LOG.info(bts.printBackTestResult("ALGO", "", 0.001, 0.005).toString());
-		bts2.runPython();
 		return "index";
 	}
 	

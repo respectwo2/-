@@ -10,5 +10,4 @@ public class CoinInfo {
 	private String ticker_issuer;
 	private String ticker_tfeature;
 	private String ticker_info;
-	}
-	
+}

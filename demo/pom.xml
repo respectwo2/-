@@ -22,7 +22,6 @@
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-web</artifactId>
       </dependency>
-      
       <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-devtools</artifactId>
@@ -34,19 +33,16 @@
          <artifactId>spring-boot-starter-test</artifactId>
          <scope>test</scope>
       </dependency>
-      
       <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-tomcat</artifactId>
          <scope>provided</scope>
       </dependency>
-
       <dependency>
          <groupId>org.apache.tomcat.embed</groupId>
          <artifactId>tomcat-embed-jasper</artifactId>
          <scope>provided</scope>
       </dependency>
-      
       <dependency>
          <groupId>org.projectlombok</groupId>
          <artifactId>lombok</artifactId>
@@ -57,7 +53,7 @@
       <dependency>
            <groupId>org.ta4j</groupId>
            <artifactId>ta4j-core</artifactId>
-           <version>0.15</version>
+           <version>0.16-SNAPSHOT</version>
       </dependency>
       
       <!--db-->
@@ -65,28 +61,34 @@
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-jdbc</artifactId>
       </dependency>
-      
       <dependency>
          <groupId>org.mybatis</groupId>
          <artifactId>mybatis</artifactId>
          <version>3.5.13</version>
       </dependency>
-      
       <dependency>
           <groupId>org.mybatis.spring.boot</groupId>
           <artifactId>mybatis-spring-boot-starter</artifactId>
           <version>3.0.2</version>
       </dependency>
-      
-      <dependency>
+      <!--<dependency>
           <groupId>com.h2database</groupId>
           <artifactId>h2</artifactId>
           <scope>runtime</scope>
-      </dependency>
-
-      
+      </dependency>-->
+      <!-- chart image-->
+      <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.5.3</version>
+     </dependency>     
    </dependencies>
-
+   <repositories>
+	   <repository>
+		   <id>sonatype snapshots</id>
+		   <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</repository>
+    </repositories>
    <build>
       <plugins>
          <plugin>
