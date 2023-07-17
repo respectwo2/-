@@ -17,6 +17,12 @@
    <properties>
       <java.version>11</java.version>
    </properties>
+   <repositories>
+	   <repository>
+		   <id>sonatype snapshots</id>
+		   <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</repository>
+   </repositories>
    <dependencies>
       <dependency>
          <groupId>org.springframework.boot</groupId>
@@ -51,9 +57,9 @@
       
       <!-- 가상화폐 백테스팅 분석 라이브러리-->
       <dependency>
-           <groupId>org.ta4j</groupId>
-           <artifactId>ta4j-core</artifactId>
-           <version>0.16-SNAPSHOT</version>
+		  <groupId>org.ta4j</groupId>
+          <artifactId>ta4j-core</artifactId>
+          <version>0.16-SNAPSHOT</version>
       </dependency>
       
       <!--db-->
@@ -83,12 +89,6 @@
             <version>1.5.3</version>
      </dependency>     
    </dependencies>
-   <repositories>
-	   <repository>
-		   <id>sonatype snapshots</id>
-		   <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</repository>
-    </repositories>
    <build>
       <plugins>
          <plugin>

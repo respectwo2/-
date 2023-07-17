@@ -32,16 +32,17 @@ public class BackTestController {
 	
 	@GetMapping("")
 	public String backTestPage() {
-		List<CoinRatioDto> arr = new ArrayList<>();
-		List<String> arr2 = new ArrayList<>();
-
-		arr.add(new CoinRatioDto("ETH",0.1));
-		arr.add(new CoinRatioDto("ALGO",0.9));
-		arr2.add("Bollinger1");
-		arr2.add("SMA");
-		List<CoinCombiCashflowDto> coinCombinationCashflows = backtesting.getCoinCombinationResult(arr,arr2,1000000);
-		LOG.info(coinCombinationCashflows.toString());
-		
+//		List<CoinRatioDto> arr = new ArrayList<>();
+//		List<String> arr2 = new ArrayList<>();
+//
+//		arr.add(new CoinRatioDto("ETH",0.1));
+//		arr.add(new CoinRatioDto("ALGO",0.9));
+//		arr2.add("Bollinger1");
+//		arr2.add("SMA");
+//		
+//		List<CoinCombiCashflowDto> coinCombinationCashflows = backtesting.getCoinCombinationResult(arr,arr2,1000000);
+//		LOG.info(coinCombinationCashflows.toString());
+//		
 		return "backtest";
 	}
 	

@@ -4,11 +4,11 @@
 (async () => {	
 
     const data = await fetch(
-        'http://localhost8080/backtest/1'
+        'http://localhost:8080/api/chartdata'
     ).then(response => response.json());
 
-
-    // create the chart
+	console.log(data);
+    /*// create the chart
     Highcharts.stockChart('container2', {
         rangeSelector: {
             selected: 1
@@ -34,6 +34,6 @@
                 ]
             }
         }]
-    });
+    });*/
     
 })();

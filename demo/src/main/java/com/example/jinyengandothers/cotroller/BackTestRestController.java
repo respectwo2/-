@@ -31,7 +31,7 @@ public class BackTestRestController {
 		return coinPriceDao.getAllTickerNames();
 	}
 	
-	@PostMapping("/chartdata")
+	@GetMapping("/chartdata")
 	public @ResponseBody ResponseEntity<List<CoinCombiCashflowDto>> getBackTestResult(){
 		List<CoinRatioDto> arr = new ArrayList<>();
 		List<String> arr2 = new ArrayList<>();
