@@ -5,7 +5,7 @@
 
 	const client = new Apollo.lib.ApolloClient({
 		networkInterface: Apollo.lib.createNetworkInterface({
-			uri: 'https://api.santiment.net/graphql',
+			uri: 'http://api.santiment.net/graphql',
 			transportBatching: true,
 		}),
 		connectToDevTools: true,
@@ -77,4 +77,5 @@
 
 		});
 	})
+	
 })();

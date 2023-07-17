@@ -1,10 +1,10 @@
 /**
  * 
  */
-(async () => {
+(async () => {	
 
     const data = await fetch(
-        'https://localhost8080/backtest/1'
+        'http://localhost8080/backtest/1'
     ).then(response => response.json());
 
 
@@ -36,5 +36,4 @@
         }]
     });
     
-    document.getElementById('container3').innerHTML = data;
 })();

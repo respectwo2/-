@@ -10,6 +10,9 @@ import com.example.jinyengandothers.dto.CoinPriceDto;
 
 @Mapper
 public interface CoinPriceMapper {
+	
+	@Select("select distinct coin_ticker from coin_price")
+	List<String> selectAllCoinNames();
 
 	@Select("select * from coin_price")
 	List<CoinPriceDto> selectAllCoinPrice();

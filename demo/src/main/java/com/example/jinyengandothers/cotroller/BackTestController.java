@@ -11,11 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.ta4j.core.reports.TradingStatement;
 
-import com.example.jinyengandothers.dto.BackTestResultDto;
+import com.example.jinyengandothers.dto.CoinCombiCashflowDto;
 import com.example.jinyengandothers.dto.CoinRatioDto;
 import com.example.jinyengandothers.service.BackTestingServiceImpl;
 
@@ -34,25 +35,15 @@ public class BackTestController {
 		List<CoinRatioDto> arr = new ArrayList<>();
 		List<String> arr2 = new ArrayList<>();
 
-		arr.add(new CoinRatioDto("BTC",0.1));
-		arr.add(new CoinRatioDto("ALGO",0.1));
+		arr.add(new CoinRatioDto("ETH",0.1));
+		arr.add(new CoinRatioDto("ALGO",0.9));
 		arr2.add("Bollinger1");
-		List<BackTestResultDto> backTestResults = backtesting.returnBackTestResult(arr, arr2);
-		LOG.info(backTestResults.toString());
-		LOG.info(backtesting.coinTrading.toString());
+		arr2.add("SMA");
+		List<CoinCombiCashflowDto> coinCombinationCashflows = backtesting.getCoinCombinationResult(arr,arr2,1000000);
+		LOG.info(coinCombinationCashflows.toString());
 		
 		return "backtest";
 	}
 	
-	@GetMapping("/1")
-	public @ResponseBody ResponseEntity<List<BackTestResultDto>> getBackTestResult(){
-		List<CoinRatioDto> arr = new ArrayList<>();
-		List<String> arr2 = new ArrayList<>();
-
-		arr.add(new CoinRatioDto("BTC",0.1));
-		arr2.add("Bollinger1");
-		List<BackTestResultDto> backTestResults = backtesting.returnBackTestResult(arr, arr2);
-//		backTestResults.get(0).setBarSeries(null);
-		return ResponseEntity.ok(backTestResults);
-	}
+	
 }
