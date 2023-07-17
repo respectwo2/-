@@ -56,4 +56,5 @@ public class SearchController {
 	    model.addAttribute("search", ticker);
 	    return "redirect:/main?tvwidgetsymbol=" + ticker.getTicker();
 	}
+	
 }

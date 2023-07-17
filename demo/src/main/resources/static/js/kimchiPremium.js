@@ -49,6 +49,8 @@ $(function() {
 		reader.onload = function(event) {
 			const textData = event.target.result;
 			const jsonData = JSON.parse(textData);
+			
+			console.log(jsonData);
 
 			// 업비트 가격
 			const price = jsonData.trade_price;

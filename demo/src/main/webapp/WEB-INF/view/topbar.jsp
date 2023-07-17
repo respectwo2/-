@@ -1,61 +1,167 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-<!-- TradingView Widget BEGIN -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://kr.tradingview.com/" rel="noopener nofollow" target="_blank"></a></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+  <div class="tradingview-widget-copyright"><a href="https://kr.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Ìä∏Î†àÏù¥Îî©Î∑∞ÏóêÏÑú Î™®Îì† ÏãúÏû• Ï∂îÏ†Å</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
   {
-  "symbols": [
-    {
-      "description": "∫Ò∆Æƒ⁄¿Œ",
-      "proName": "UPBIT:BTCKRW"
-    },
-    {
-      "description": "¿Ã¥ı∏ÆøÚ",
-      "proName": "UPBIT:ETHKRW"
-    },
-    {
-      "description": "∏ﬁ≈ª",
-      "proName": "UPBIT:MTLKRW"
-    },
-    {
-      "description": "µµ¡ˆƒ⁄¿Œ",
-      "proName": "UPBIT:DOGEKRW"
-    },
-    {
-      "description": "∏Æ«√",
-      "proName": "UPBIT:XRPKRW"
-    },
-    {
-      "description": "Ω∫≈√Ω∫",
-      "proName": "UPBIT:STXKRW"
-    },
-    {
-      "description": "ø°¿Ã∫Í",
-      "proName": "UPBIT:AAVEKRW"
-    },
-    {
-      "description": "ƒˆ≈“",
-      "proName": "UPBIT:QTUMKRW"
-    }
-  ],
   "colorTheme": "light",
+  "dateRange": "12M",
+  "showChart": true,
+  "locale": "kr",
+  "largeChartUrl": "",
   "isTransparent": false,
   "showSymbolLogo": true,
-  "largeChartUrl": "http://localhost:8080/main",
-  "locale": "kr"
+  "showFloatingTooltip": false,
+  "width": "400",
+  "height": "660",
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(0, 0, 0, 0)",
+  "scaleFontColor": "rgba(106, 109, 120, 1)",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "ÏΩîÏù∏",
+      "symbols": [
+        {
+          "s": "UPBIT:STXKRW",
+          "d": "STX"
+        },
+        {
+          "s": "UPBIT:VETKRW",
+          "d": "VET"
+        },
+        {
+          "s": "UPBIT:NEARKRW",
+          "d": "NEAR"
+        },
+        {
+          "s": "UPBIT:CROKRW",
+          "d": "CRO"
+        },
+        {
+          "s": "UPBIT:APTKRW",
+          "d": "APT"
+        },
+        {
+          "s": "UPBIT:HBARKRW",
+          "d": "HBAR"
+        },
+        {
+          "s": "UPBIT:XLMKRW",
+          "d": "XLM"
+        },
+        {
+          "s": "UPBIT:ETCKRW",
+          "d": "ETC"
+        },
+        {
+          "s": "UPBIT:ATOMKRW",
+          "d": "ATOM"
+        },
+        {
+          "s": "UPBIT:LINKKRW",
+          "d": "LINK"
+        },
+        {
+          "s": "UPBIT:BCHKRW",
+          "d": "BCH"
+        },
+        {
+          "s": "UPBIT:SHIBKRW",
+          "d": "SHIB"
+        },
+        {
+          "s": "UPBIT:AVAXKRW",
+          "d": "AVAX"
+        },
+        {
+          "s": "UPBIT:MATICKRW",
+          "d": "MATIC"
+        },
+        {
+          "s": "UPBIT:DOTKRW",
+          "d": "DOT"
+        },
+        {
+          "s": "UPBIT:TRXKRW",
+          "d": "TRX"
+        },
+        {
+          "s": "UPBIT:SOLKRW",
+          "d": "SOL"
+        },
+        {
+          "s": "UPBIT:DOGEKRW",
+          "d": "DOGE"
+        },
+        {
+          "s": "UPBIT:XRPKRW",
+          "d": "XRP"
+        },
+        {
+          "s": "UPBIT:ETHKRW",
+          "d": "ETH "
+        },
+        {
+          "s": "UPBIT:BTCKRW",
+          "d": "BTC"
+        },
+        {
+          "s": "UPBIT:ALGOKRW",
+          "d": "ALGO"
+        },
+        {
+          "s": "UPBIT:AAVEKRW",
+          "d": "AAVE"
+        },
+        {
+          "s": "UPBIT:EOSKRW",
+          "d": "EOS"
+        },
+        {
+          "s": "UPBIT:SANDKRW",
+          "d": "SAND"
+        },
+        {
+          "s": "UPBIT:WAVESKRW",
+          "d": "WAVES"
+        },
+        {
+          "s": "UPBIT:KAVAKRW",
+          "d": "KAVA"
+        },
+        {
+          "s": "UPBIT:GRSKRW",
+          "d": "GRS"
+        },
+        {
+          "s": "UPBIT:TKRW",
+          "d": "T"
+        },
+        {
+          "s": "UPBIT:MBLKRW",
+          "d": "MBL"
+        },
+        {
+          "s": "UPBIT:MTLKRW",
+          "d": "MTL"
+        },
+        {
+          "s": "UPBIT:HIFIKRW",
+          "d": "HIFI"
+        }
+      ]
+    }
+  ]
 }
   </script>
 </div>
 <!-- TradingView Widget END -->
-</body>
-</html>

@@ -8,8 +8,5 @@
 <script src="../libs/simplebar/dist/simplebar.js"></script>
 <script src="../js/dashboard.js"></script>
 
-<script>
-	
-</script>
 </body>
 </html>

@@ -183,7 +183,7 @@
 	</div>
 </div>
 <%@ include file="layout/footer.jsp"%>
-<
+
 <script type="text/javascript">
 const tickerValue = "${ticker}";
 </script>

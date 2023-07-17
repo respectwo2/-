@@ -68,14 +68,15 @@ public class HomeController {
 		return "coinNews";
 	}
 
-	@GetMapping("/weeklyIncreaseRate")
+	@GetMapping("/trend")
 	public String weeklyIncreaseRate(Model model) {
 		CoinWeekChangeDto[] coins = coinInfoService.getCoins();
+		CoinWeekChangeDto[] coins24Acc = coinInfoService.getCoinDailyVolume();
 		String currentTime = coinInfoService.getCurrentTime();
-		if(!currentTime.isEmpty()) currentTime.replace("T", " ").substring(0,16);
+		if(!currentTime.isEmpty()) currentTime = currentTime.replace("T", " ").substring(0,16);
 		model.addAttribute("coins", coins);
 		model.addAttribute("currentTime", currentTime);
-		return "weeklyIncreaseRate";
+		return "trend";
 	}
 	
 }
