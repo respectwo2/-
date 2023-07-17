@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ include file="layout/header.jsp"%>
 <div class="container-fluid">
 	<!-- Row 1 -->
@@ -146,7 +146,7 @@
 			<div class="card w-100">
 				<div class="card-body p-4">
 					<div class="mb-4">
-						<h5 class="card-title fw-semibold">Recent Transactions</h5>					
+						<h5 class="card-title fw-semibold">Binance Price</h5>
 						<h6 id="binancePrice"></h6>
 						<h5 id="kimp"></h5>
 					</div>
@@ -157,6 +157,25 @@
 			<div class="card w-100">
 				<div class="card-body p-4">
 					<h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
+					<div class="row mt-4">
+						<div class="col-md-6">
+							<div class="hstack p-3 border rounded mb-3 mb-md-0">
+								<div class="ms-3">
+									<h6 class="mb-0 fs-3">고가</h6>
+									<span id="high_price" class="fs-2" ></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="hstack p-3 border rounded">
+								<div class="ms-3">
+									<h6 class="mb-0 fs-3">저가</h6>
+									 <span class="fs-2" id = "low_price">
+										</span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

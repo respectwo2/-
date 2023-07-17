@@ -18,9 +18,9 @@ $(function() {
 	binaceWebSocket.onopen = () => { };
 	binaceWebSocket.onmessage = (event) => {
 		const data = JSON.parse(event.data);
-		const price= data.p * 1;
+		const price = data.p * 1;
 		document.getElementById("binancePrice").textContent = price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '$';
-		binancePrice =price * rate; // Current price 
+		binancePrice = price * rate; // Current price 
 		calculation();
 	};
 
@@ -49,13 +49,21 @@ $(function() {
 		reader.onload = function(event) {
 			const textData = event.target.result;
 			const jsonData = JSON.parse(textData);
-			
-			console.log(jsonData);
 
 			// 업비트 가격
 			const price = jsonData.trade_price;
 			upbitPrice = price;
-			
+
+			const high_price = jsonData.high_price + "";
+			const low_price = jsonData.low_price + "";
+			console.log(high_price)
+			document.getElementById("high_price").textContent = high_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			document.getElementById("low_price").textContent = low_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			document.getElementById("high_price").style.color = 'green';
+			document.getElementById("low_price").style.color = 'red';
+
+
+
 			calculation();
 		};
 
