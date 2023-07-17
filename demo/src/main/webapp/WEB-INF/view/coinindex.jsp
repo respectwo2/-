@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Insert title here</title>
+
 
 <style>
+#indexinfo{ font-size: 30px;
+}
 #info {line-height:3; 
 }
 .card-body { margin-right:50px;
@@ -13,14 +17,18 @@
 .form-control{ margin-right:50px;
 }
 .input-group{ margin-right:950px;
-
-}
 </style>
 
-<title>Insert title here</title>
+</head>
+<body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
   <link rel="shortcut icon" type="image/png" href="../images/logos/favicon.png" />
   <link rel="stylesheet" href="../css/styles.min.css" />
 </head>
+
 <body>
   <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
@@ -161,130 +169,49 @@
       </header>
       <!--  Header End -->
       <div class="container-fluid">
-        <!--  Row 1 -->
-        <div class="row">
-        <div class="topbar">
-        <%@ include file="topbar.jsp" %>
-        </div>
-          <div class="align-items-strech">
-            <div class="card w-100">
-              <div class="card-body">
-                <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
-                  <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title fw-semibold">Coin Price</h5>
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://kr.tradingview.com/" rel="noopener nofollow" target="_blank"></a></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-  {
-  "symbols": [
-    [
-      "UPBIT:${ticker}KRW|1D"
-    ]
-  ],
-  "chartOnly": false,
-  "width": 1000,
-  "height": 500,
-  "locale": "kr",
-  "colorTheme": "light",	
-  "autosize": false,
-  "showVolume": false,
-  "showMA": false,
-  "hideDateRanges": false,
-  "hideMarketStatus": false,
-  "hideSymbolLogo": false,
-  "scalePosition": "right",
-  "scaleMode": "Normal",
-  "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-  "fontSize": "10",
-  "noTimeScale": false,
-  "valuesTracking": "1",
-  "changeMode": "price-and-percent",
-  "chartType": "area",
-  "maLineColor": "#2962FF",
-  "maLineWidth": 1,
-  "maLength": 9,
-  "lineWidth": 2,
-  "lineType": 0,
-  "dateRanges": [
-    "1d|1",
-    "1m|30",
-    "3m|60",
-    "12m|1D",
-    "60m|1W",
-    "all|1M"
-  ]
-}
-  </script>
-                  </div>
-                </div>
-                
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="row">
-              <div class="col-lg-12">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <!-- <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100">
-              <div class="card-body p-4">
-                <div class="mb-4">
-                  <h5 class="card-title fw-semibold">Recent Transactions</h5>
-                </div>
-
-              </div>
-            </div>
-            
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="card w-100">
-              <div class="card-body p-4">
-                <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
-              </div>
-
-            </div>
-          </div> -->
-          
-          <div class="container-fluid">
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Coin Info</h5>
-              <div class="card">
-                <div class="card-body p-4">
-                  <p id="info">${info}</p>
-                </div>
-              </div>
-              <h5 class="card-title fw-semibold mb-4">Coin Issuer</h5>
-              <div class="card mb-0">
-                <div class="card-body p-4">
-                  <p id="info">${issuer}</p>
-                </div>
-              </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">UBMI & UBAI Rate</h5>
+            <%@ include file ="charts.jsp" %>
+            <div><p class="mb-0"></p>
+            <span id="indexinfo">UBMI (UPBIT Market Index)</span><br><br>
+            <span>유동시가총액을 사용한 시가총액 가중 방식 인덱스</span><br>
+            <span>거래소에 상장된 모든 화폐를 계산해 시장 전체의 흐름을 파악할 수 있는 지표</span><br><br>
+            <span></span>
+            <span></span>
+            <span id="indexinfo">UBAI (UPBIT Altcoin Index)</span><br><br>
+            <span>비트코인을 제외한 UBMI 인덱스</span><br>
+            <span>비트코인의 지배적인 영향력을 제외한 알트코인의 움직임을 알 수 있는 지표</span><br>
             </div>
           </div>
         </div>
       </div>
-          
-          
-          
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Sample Page</h5>
+            <p class="mb-0">This is a sample page </p>
+          </div>
         </div>
       </div>
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Sample Page</h5>
+            <p class="mb-0">This is a sample page </p>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
   <script src="../libs/jquery/dist/jquery.min.js"></script>
   <script src="../libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../js/sidebarmenu.js"></script>
   <script src="../js/app.min.js"></script>
-  <script src="../libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../libs/simplebar/dist/simplebar.js"></script>
-  <script src="../js/dashboard.js"></script>
-
-<script>
-</script>
+</body>
+</body>
 <script>
 document.getElementById("searchButton").addEventListener("click", function(event) {
   event.preventDefault(); 
@@ -296,5 +223,4 @@ document.getElementById("searchButton").addEventListener("click", function(event
 
 </script>
 
-</body>
 </html>

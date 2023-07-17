@@ -11,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.jinyengandothers.entity.CoinInfo;
 import com.example.jinyengandothers.entity.UBAIPrice;
 import com.example.jinyengandothers.entity.UBMIPrice;
 
@@ -66,6 +68,12 @@ public class IndexController {
 	@GetMapping("/charts")
 	public String charts(Model model) {
 		return "charts";
+	}
+	
+	
+	@GetMapping("/coinindex")
+	public String test1(Model model) {
+		return "coinindex";
 	}
 	
 }

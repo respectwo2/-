@@ -18,12 +18,15 @@
             zoomType: 'x'
         },
         title: {
-            text: 'UBAI & UBMI rate',
+            text: '',
             align: 'left'
         },
         xAxis: {
             type: 'datetime',
-            categories: data.ubaiData.map(dataPoint => dataPoint[0]) // 수정: UBAI 데이터의 candleTimeDate 사용
+            title: '',
+            categories: data.ubaiData.map(dataPoint => dataPoint[0]), // 수정: UBAI 데이터의 candleTimeDate 사용
+            tickInterval: 24,
+            reversed: true
         },
         yAxis: {
             title: {
@@ -62,11 +65,12 @@
         series: [{
             type: 'area',
             name: 'UBAI',
-            data: data.ubaiData.map(dataPoint => dataPoint[1]) // 수정: UBAI 데이터의 tradePrice 사용
+            data: data.ubaiData.map(dataPoint => dataPoint[1]), 
+        	color: 'red'
         }, {
             type: 'area',
             name: 'UBMI',
-            data: data.ubmiData.map(dataPoint => dataPoint[1]) // 수정: UBMI 데이터의 tradePrice 사용
+            data: data.ubmiData.map(dataPoint => dataPoint[1]) 
         }]
     });
   })();
