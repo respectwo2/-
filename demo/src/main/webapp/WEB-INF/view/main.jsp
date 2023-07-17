@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="layout/header.jsp"%>
 <div class="container-fluid">
 	<!-- Row 1 -->
@@ -144,11 +146,9 @@
 			<div class="card w-100">
 				<div class="card-body p-4">
 					<div class="mb-4">
-						<h5 class="card-title fw-semibold">Recent Transactions</h5>
-						<p id="price"></p>
-						<p id="binance_price"></p>
-						<p id="kimp"></p>
-						<p id="change_rate"></p>
+						<h5 class="card-title fw-semibold">Recent Transactions</h5>					
+						<h6 id="binancePrice"></h6>
+						<h5 id="kimp"></h5>
 					</div>
 				</div>
 			</div>

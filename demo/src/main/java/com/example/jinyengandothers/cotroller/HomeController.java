@@ -71,7 +71,10 @@ public class HomeController {
 	@GetMapping("/weeklyIncreaseRate")
 	public String weeklyIncreaseRate(Model model) {
 		CoinWeekChangeDto[] coins = coinInfoService.getCoins();
+		String currentTime = coinInfoService.getCurrentTime();
+		if(!currentTime.isEmpty()) currentTime.replace("T", " ").substring(0,16);
 		model.addAttribute("coins", coins);
+		model.addAttribute("currentTime", currentTime);
 		return "weeklyIncreaseRate";
 	}
 	

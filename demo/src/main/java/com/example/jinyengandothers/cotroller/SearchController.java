@@ -23,7 +23,7 @@ public class SearchController {
 	private CryptoCompareNewsService compareNewsService;
 	
 	
-	@GetMapping("/main")
+	@GetMapping(value = {"/main", "/"})
 	public String showMainPage(@RequestParam(value="tvwidgetsymbol", defaultValue = "BTC") String ticker, Model model) {
 	    if (ticker.startsWith("UPBIT:") && ticker.endsWith("KRW") && ticker.length() > 10) {
 	        ticker = ticker.substring(6, ticker.length() - 3);
