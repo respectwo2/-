@@ -53,7 +53,7 @@
                 <span class="hide-menu">Coin BackTest</span>
               </a>
             </li> <li class="sidebar-item">
-              <a class="sidebar-link" href="./weeklyIncreaseRate" aria-expanded="false">
+              <a class="sidebar-link" href="./trend" aria-expanded="false">
                 <span>
                   <i class="ti ti-chart-bar"></i>
                 </span>

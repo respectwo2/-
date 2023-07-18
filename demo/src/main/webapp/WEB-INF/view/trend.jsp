@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <%@ include file="layout/header.jsp"%>
+
 
 <div class="container-fluid">
 	<div class="row">
@@ -42,7 +44,6 @@
 											</div>
 										</c:when>
 									</c:choose>
-
 								</div>
 							</div>
 						</c:if>
@@ -97,6 +98,32 @@
 			</div>
 		</div>
 	</div>
-
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-body">
+				<div class="bg-white px-2 pt-1 mt-2 text-center" id="upbitTable">
+					<div class="table-responsive">
+						<table class="table text-dark table-hover" id="upbitTable">
+							<thead>
+								<tr>
+									<th class="th-sm">이름</th>
+									<th class = "th-sm">현재 가격 </th>
+									<th class = "th-sm">전일 종가 </th>
+									<th class = "th-sm">변화량</th>
+									<th class = "th-sm">52주 신고가</th>
+									<th class = "th-sm">52주 신저가</th>
+								</tr>
+							</thead>
+							<tbody id="marketData" class="text-center">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
 <%@ include file="layout/footer.jsp"%>
+<script src="../js/allUpbitDataCall.js"></script>
+

@@ -63,15 +63,12 @@ public class IndexController {
         dataMap.put("ubmiData", ubmiData);
         return dataMap;
     }
+    
 	@GetMapping("/charts")
 	public String charts(Model model) {
 		return "charts";
 	}
 	
-	@GetMapping("/coinindex")
-	public String test1(Model model) {
-		return "coinindex";
-	}
 	
 }
     

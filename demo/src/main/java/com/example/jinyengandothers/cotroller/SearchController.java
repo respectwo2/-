@@ -8,13 +8,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.jinyengandothers.dto.CoinWeekChangeDto;
 import com.example.jinyengandothers.dto.NewsDto;
 import com.example.jinyengandothers.entity.CoinInfo;
+import com.example.jinyengandothers.service.CoinInfoService;
 import com.example.jinyengandothers.service.CryptoCompareNewsService;
 import com.example.jinyengandothers.service.SearchService;
 
 @Controller
 public class SearchController {
+	
+	@Autowired
+	CoinInfoService coinInfoService;
 	
 	@Autowired
 	private SearchService searchService;
@@ -57,8 +62,21 @@ public class SearchController {
 	    return "redirect:/main?tvwidgetsymbol=" + ticker.getTicker();
 	}
 	
-	@GetMapping("/what")
-	public String what(	) {
-		return "/topbar";
+	@GetMapping("/coinNews")
+	public String test4(Model model, @RequestParam(value = "category", defaultValue = "") String category) { // CryptoCompare
+		// news api
+		List<NewsDto> newsList = compareNewsService.getNews(category);
+		model.addAttribute("newsList", newsList);
+		return "coinNews";
+	}
+
+	@GetMapping("/trend")
+	public String weeklyIncreaseRate(Model model) {
+		CoinWeekChangeDto[] coins = coinInfoService.getCoins();
+		String currentTime = coinInfoService.getCurrentTime();
+		if(!currentTime.isEmpty()) currentTime.replace("T", " ").substring(0,16);
+		model.addAttribute("coins", coins);
+		model.addAttribute("currentTime", currentTime);
+		return "trend";
 	}
 }

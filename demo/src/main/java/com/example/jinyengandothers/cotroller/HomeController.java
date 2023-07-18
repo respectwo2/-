@@ -26,56 +26,5 @@ import com.example.jinyengandothers.dao.CoinPriceDao;
 
 @Controller
 public class HomeController {
-
-	private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
-
-	@Autowired
-	private CoinPriceDao coinPriceDao;
-	
-	@Autowired
-	CryptoCompareNewsService compareNewsService;
-	
-	@Autowired
-	CoinInfoService coinInfoService;
-	
-	@GetMapping("/1")
-	public String index() {
-		return "redirect:/main?tvwidgetsymbol=BTC";
-	}
-
-	@GetMapping("/test")
-	public String realChart(Model model) {
-		return "test";
-	}
-
-	// test.jsp에서 환율이 정확하지않음.
-	@GetMapping("/test2") // 파라미터값 = 티커(https://api.upbit.com/v1/market/all?isDetails=false)
-	public String tradingviewTest2(@RequestParam(value = "ticker", defaultValue = "BTC") String ticker, Model model) {
-		model.addAttribute("ticker", ticker);
-		return "test2";
-	}
-
-	@GetMapping("/test3")
-	public String test3() {
-		return "test3";
-	}
-
-	@GetMapping("/coinNews")
-	public String test4(Model model, @RequestParam(value = "category", defaultValue = "") String category) { // CryptoCompare
-		// news api
-		List<NewsDto> newsList = compareNewsService.getNews(category);
-		model.addAttribute("newsList", newsList);
-		return "coinNews";
-	}
-
-	@GetMapping("/weeklyIncreaseRate")
-	public String weeklyIncreaseRate(Model model) {
-		CoinWeekChangeDto[] coins = coinInfoService.getCoins();
-		String currentTime = coinInfoService.getCurrentTime();
-		if(!currentTime.isEmpty()) currentTime.replace("T", " ").substring(0,16);
-		model.addAttribute("coins", coins);
-		model.addAttribute("currentTime", currentTime);
-		return "weeklyIncreaseRate";
-	}
 	
 }
