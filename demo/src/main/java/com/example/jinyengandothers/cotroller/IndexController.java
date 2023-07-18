@@ -69,6 +69,11 @@ public class IndexController {
 		return "charts";
 	}
 	
+	@GetMapping("/coinindex")
+	public String coinindex(Model model) {
+		return "coinindex";
+	}
+	
 	
 }
     

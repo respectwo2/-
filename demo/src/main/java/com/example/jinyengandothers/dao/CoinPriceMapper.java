@@ -6,15 +6,20 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.example.jinyengandothers.dto.CoinPrice;
+import com.example.jinyengandothers.dto.CoinPriceDto;
 
 @Mapper
 public interface CoinPriceMapper {
+	
+	@Select("select distinct coin_ticker from coin_price")
+	List<String> selectAllCoinNames();
 
 	@Select("select * from coin_price")
-	List<CoinPrice> selectAllCoinPrice();
+	List<CoinPriceDto> selectAllCoinPrice();
 	
 	@Select("select end_time, open_price, high_price, low_price, close_price, volume from coin_price where coin_ticker=#{ticker}")
-	List<CoinPrice> selectCoinAllPrice(@Param("ticker") String coinTicker);
+	List<CoinPriceDto> selectCoinAllPrice(@Param("ticker") String coinTicker);
 	
+	@Select("select count(*) from coin_price where coin_ticker=#{ticker}")
+	int getCoinPriceCount(@Param("ticker") String coinName);
 }

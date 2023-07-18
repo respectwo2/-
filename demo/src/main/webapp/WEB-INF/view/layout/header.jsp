@@ -27,6 +27,7 @@
   border-radius: 5px;
 } */
 </style>
+
 <title>Coinnable</title>
 <link rel="shortcut icon" type="image/png"
 	href="../images/logos/coinnablefavicon.png" />

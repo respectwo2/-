@@ -34,13 +34,19 @@ public class CoinInfoService {
 	public CoinWeekChangeDto[] getCoins() { // 주간 상승 수집 데이터
 		return coins;
 	}
-	
+
+	private CoinWeekChangeDto[] coins24Acc;
+
+	public CoinWeekChangeDto[] getCoins24Acc() {
+		return coins24Acc;
+	}
+
 	private String currentTime = "";
 
 	public String getCurrentTime() {
 		return currentTime;
 	}
-	
+
 	public List<String> getAlltickers() {
 		return searchServiceImpl.getAllCoinTicker();
 	}
@@ -53,7 +59,7 @@ public class CoinInfoService {
 
 		HttpClient httpClient = HttpClient.newHttpClient();
 
-		CoinWeekChangeDto[] coins = new CoinWeekChangeDto[coinNames.size()];
+		coins = new CoinWeekChangeDto[coinNames.size()];
 
 		int idx = 0;
 		for (String coinName : coinNames) {
@@ -115,51 +121,70 @@ public class CoinInfoService {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
-			
+
 		}
 
 		Arrays.sort(coins);
 		log.info("주간 상승률 수집");
 		return coins;
 	}
-	
-	/*
-	 * public CoinWeekChangeDto[] getCoinDailyVolume() { // Get all coin ticker
-	 * names List<String> coinNames = getAlltickers();
-	 * 
-	 * String url = "https://api.upbit.com/v1/ticker";
-	 * 
-	 * HttpClient httpClient = HttpClient.newHttpClient();
-	 * 
-	 * CoinWeekChangeDto[] coins = new CoinWeekChangeDto[coinNames.size()];
-	 * 
-	 * int idx = 0; for (String coinName : coinNames) { coinName = "KRW-" +
-	 * coinName;
-	 * 
-	 * // Get current price HttpRequest currentPriceRequest =
-	 * HttpRequest.newBuilder() .uri(URI.create(url + "?market=" +
-	 * coinName)).GET().build(); try { HttpResponse<String> currentPriceResponse =
-	 * httpClient.send(currentPriceRequest, HttpResponse.BodyHandlers.ofString());
-	 * if (currentPriceResponse.statusCode() == 200) { String response =
-	 * currentPriceResponse.body(); ObjectMapper objectMapper = new ObjectMapper();
-	 * JsonNode jsonNode = objectMapper.readTree(response); JsonNode firstObject =
-	 * jsonNode.get(0); nowPrice = firstObject.get("trade_price").asDouble();
-	 * currentTime = firstObject.get("candle_date_time_kst").asText(); } else {
-	 * log.warn("Failed to fetch price from one week ago for " + coinName +
-	 * ". Status code: " + currentPriceResponse.statusCode()); } } catch (Exception
-	 * e) { e.printStackTrace(); }
-	 * 
-	 * 
-	 * }
-	 */
 
-	/*
-	 * Arrays.sort(coins); log.info("주간 상승률 수집"); return coins; }
-	 */
+	public CoinWeekChangeDto[] getCoinDailyVolume() {
+		// Get all coin ticker names
+		List<String> coinNames = getAlltickers();
+
+		String url = "https://api.upbit.com/v1/ticker";
+
+		HttpClient httpClient = HttpClient.newHttpClient();
+
+		CoinWeekChangeDto[] coins24Acc = new CoinWeekChangeDto[coinNames.size()];
+
+		int idx = 0;
+		for (String coinName : coinNames) {
+			coinName = "KRW-" + coinName;
+			double accTradeVolume24h = 0;
+			HttpRequest currentPriceRequest = HttpRequest.newBuilder().uri(URI.create(url + "?markets=" + coinName))
+					.GET().build();
+			try {
+				HttpResponse<String> currentPriceResponse = httpClient.send(currentPriceRequest,
+						HttpResponse.BodyHandlers.ofString());
+				if (currentPriceResponse.statusCode() == 200) {
+					String response = currentPriceResponse.body();
+					ObjectMapper objectMapper = new ObjectMapper();
+					JsonNode jsonNode = objectMapper.readTree(response);
+					JsonNode firstObject = jsonNode.get(0);
+					accTradeVolume24h = firstObject.get("acc_trade_volume_24h").asDouble();
+//					currentTime = firstObject.get("candle_date_time_kst").asText();
+				} else {
+					log.warn("Failed to fetch price from 24 acc volume  for " + coinName + ". Status code: "
+							+ currentPriceResponse.statusCode());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			coins24Acc[idx++] = new CoinWeekChangeDto(accTradeVolume24h, coinName);
+
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		Arrays.sort(coins24Acc);
+		log.info("24시간 누적거래량 수집");
+		return coins24Acc;
+	}
+
+	@Scheduled(cron = "0 */1 * * * *") // Run every 1 minutes
+	public void updateCoinDailyVolume() {
+		coins24Acc = getCoinDailyVolume();
+	}
+
 
 	@Scheduled(cron = "0 */10 * * * *") // Run every 10 minutes
-	public void updateCoinWeekChangeDto() {
+	public void updateCoinWeekChange() {
 		coins = getWeeklyIncreaseRate();
 	}
 
