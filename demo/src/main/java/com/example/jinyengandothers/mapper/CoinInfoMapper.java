@@ -1,5 +1,7 @@
 package com.example.jinyengandothers.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -20,6 +22,9 @@ public interface CoinInfoMapper {
 
     @Select("SELECT * FROM coininfo WHERE ticker = #{search} OR ticker_name = #{search}")
     CoinInfo getTickerBySearch(@Param("search") String search);
+    
+    @Select("SELECT ticker FROM coininfo")
+    List<String> getAllTicker();
     
     @Select("Select ticker_info from coininfo where ticker = #{search} OR ticker_name = #{search}")
     CoinInfo getTickerInfoByTicker(@Param("ticker") String search);

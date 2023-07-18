@@ -10,4 +10,6 @@ public class NewsDto {
 	public String imgUrl;
 	public String body;
 	public String categories;
+	public String time;
+	public String source;
 }

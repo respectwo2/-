@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,35 +16,35 @@
   {
   "symbols": [
     {
-      "description": "∫Ò∆Æƒ⁄¿Œ",
+      "description": "Îπ??∏Ï???",
       "proName": "UPBIT:BTCKRW"
     },
     {
-      "description": "¿Ã¥ı∏ÆøÚ",
+      "description": "?¥Î??Î¶¨Ï??",
       "proName": "UPBIT:ETHKRW"
     },
     {
-      "description": "∏ﬁ≈ª",
+      "description": "Î©???",
       "proName": "UPBIT:MTLKRW"
     },
     {
-      "description": "µµ¡ˆƒ⁄¿Œ",
+      "description": "??Ïß?ÏΩ???",
       "proName": "UPBIT:DOGEKRW"
     },
     {
-      "description": "∏Æ«√",
+      "description": "Î¶¨Ì??",
       "proName": "UPBIT:XRPKRW"
     },
     {
-      "description": "Ω∫≈√Ω∫",
+      "description": "?§Ì????",
       "proName": "UPBIT:STXKRW"
     },
     {
-      "description": "ø°¿Ã∫Í",
+      "description": "???¥Î?",
       "proName": "UPBIT:AAVEKRW"
     },
     {
-      "description": "ƒˆ≈“",
+      "description": "????",
       "proName": "UPBIT:QTUMKRW"
     }
   ],

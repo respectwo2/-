@@ -1,5 +1,7 @@
 package com.example.jinyengandothers.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +48,11 @@ public class SearchServiceImpl implements SearchService {
 	@Override
 	public CoinInfo getTickerIssuerByTicker(String search) {
 		return coininfoMapper.getTickerIssuerByTicker(search);
+	}
+	
+	@Override
+	public List<String> getAllCoinTicker(){
+		return coininfoMapper.getAllTicker();
 	}
 	
 }
