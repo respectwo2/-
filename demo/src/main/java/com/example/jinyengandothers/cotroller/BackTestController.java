@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.ta4j.core.reports.TradingStatement;
 
+import com.example.jinyengandothers.Scheduler.CoinPriceSchduler;
 import com.example.jinyengandothers.dto.CoinCombiCashflowDto;
 import com.example.jinyengandothers.dto.CoinRatioDto;
 import com.example.jinyengandothers.service.BackTestingServiceImpl;
@@ -28,7 +29,7 @@ public class BackTestController {
 
 	
 	@Autowired
-	BackTestingServiceImpl backtesting;
+	BackTestingServiceImpl backtesting;	
 	
 	@GetMapping("")
 	public String backTestPage() {
@@ -43,6 +44,7 @@ public class BackTestController {
 //		List<CoinCombiCashflowDto> coinCombinationCashflows = backtesting.getCoinCombinationResult(arr,arr2,1000000);
 //		LOG.info(coinCombinationCashflows.toString());
 //		
+		
 		return "backtest";
 	}
 	

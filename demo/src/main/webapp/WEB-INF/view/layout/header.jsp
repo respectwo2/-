@@ -1,25 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
 <style>
-#info {line-height:3; 
+#info {
+	line-height: 3;
 }
-.card-body { margin-right:50px;
-}
-.form-control{ margin-right:50px;
-}
-.input-group{ margin-right:950px;
 
+.card-body {
+	margin-right: 50px;
 }
-#indexinfo{ font-size: 30px;
+
+.form-control {
+	margin-right: 50px;
 }
-.left-sidebar{
-	background-color:#AFEEEE;
+
+.input-group {
+	margin-right: 950px;
+}
+
+#indexinfo {
+	font-size: 30px;
+}
+
+.left-sidebar {
+	background-color: #AFEEEE;
 }
 
 /* .navbar.navbar-expand-lg.navbar-light {
@@ -35,6 +44,21 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"
 	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
 	crossorigin="anonymous"></script>
+<script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+<script
+	src="https://unpkg.com/survey-jquery@1.9.97/survey.jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://unpkg.com/survey-jquery@1.9.97/defaultV2.min.css" />
+<script type="text/javascript" src="../js/mvrvRatio.js"></script>
+<script type="text/javascript" src="../js/backtest.js"></script>
+<script src="../js/backtestVariable.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
+<!-- Include the library in the page -->
+<script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
+
+
 </head>
 <body>
 	<!--  Body Wrapper -->
@@ -45,53 +69,52 @@
 		<!--  Main wrapper -->
 		<div class="body-wrapper">
 			<!--  Header Start -->
-			
+
 			<!--  search 부분 -->
 			<header class="app-header">
 				<nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar"
-          >
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                <i class="bx bx-menu bx-sm"></i>
-              </a>
-            </div>
+					class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+					id="layout-navbar">
+					<div
+						class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+						<a class="nav-item nav-link px-0 me-xl-4"
+							href="javascript:void(0)"> <i class="bx bx-menu bx-sm"></i>
+						</a>
+					</div>
 
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0">
-                  </i>
-                  <a id="searchButton">
-      <img src="../images/logos/search.PNG"/>
-    </a>
-    <input
-      id="searchInput"
-      type="text"
-      class="form-control border-0 shadow-none"
-      placeholder="Search..."
-      aria-label="Search..."
-    />
-                </div>
-              </div>
-              <!-- /Search -->
-              
-              
-            </div>
-            <ul class="navbar-nav flex-row align-items-center ms-auto">
-                <!-- Place this tag where you want the button to render. -->
-                <li class="nav-item lh-1 me-3">
-                  <h4>About Coinnable</h4>
-                </li>
-              </ul>
-          </nav>
-			<div class="topbar">
-			<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://kr.tradingview.com/" rel="noopener nofollow" target="_blank"></a></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+					<div class="navbar-nav-right d-flex align-items-center"
+						id="navbar-collapse">
+						<!-- Search -->
+						<div class="navbar-nav align-items-center">
+							<div class="nav-item d-flex align-items-center">
+								<i class="bx bx-search fs-4 lh-0"> </i> <a id="searchButton">
+									<img src="../images/logos/search.PNG" />
+								</a> <input id="searchInput" type="text"
+									class="form-control border-0 shadow-none"
+									placeholder="Search..." aria-label="Search..." />
+							</div>
+						</div>
+						<!-- /Search -->
+
+
+					</div>
+					<ul class="navbar-nav flex-row align-items-center ms-auto">
+						<!-- Place this tag where you want the button to render. -->
+						<li class="nav-item lh-1 me-3">
+							<h4>About Coinnable</h4>
+						</li>
+					</ul>
+				</nav>
+				<div class="topbar">
+					<div class="tradingview-widget-container">
+						<div class="tradingview-widget-container__widget"></div>
+						<div class="tradingview-widget-copyright">
+							<a href="https://kr.tradingview.com/" rel="noopener nofollow"
+								target="_blank"></a>
+						</div>
+						<script type="text/javascript"
+							src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js"
+							async>
   {
   "symbols": [
     {
@@ -134,13 +157,9 @@
   "locale": "kr"
 }
   </script>
-</div>
-			</div>
-			
+					</div>
+				</div>
+
 			</header>
 			<!--  Header End -->
-<br>
-<br>
-<br>
-<br>
-<br>
+			<br> <br> <br> <br> <br>

@@ -50,8 +50,12 @@
 </head>
 
 <body>
-<script type="text/javascript" src="/js/mvrvRatio.js" ></script>
-<script type="text/javascript" src="/js/backtest.js"></script>
+
+<script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/survey-jquery@1.9.97/survey.jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/survey-jquery@1.9.97/defaultV2.min.css" />
+<script type="text/javascript" src="../js/mvrvRatio.js" ></script>
+<script type="text/javascript" src="../js/backtest.js"></script>
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
@@ -65,10 +69,9 @@
     </p>
 </figure>
 
-<div id="container3">
-</div>
-${backtestresult}
-</body>
+<div id="surveyElement"></div>
+<script src="../js/backtestVariable.js"></script>
 
+</body>
 </html>
 

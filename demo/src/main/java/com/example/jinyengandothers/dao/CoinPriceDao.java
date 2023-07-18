@@ -37,9 +37,17 @@ public class CoinPriceDao {
 	public List<CoinPriceDto> selectCoinAllPrice(String ticker){
 		return coinPriceMapper.selectCoinAllPrice(ticker);
 	}
+	
+	public int selectCoinIdByCoinTicker(String ticker) {
+		return coinPriceMapper.selectCoinIdByCoinTicker(ticker);
+	}
 
 	public int getCoinPriceCount(String coinName) {
 		return coinPriceMapper.getCoinPriceCount(coinName);
+	}
+	
+	public void insertCoin(CoinPriceDto dto) {
+		coinPriceMapper.insertCoinPrice(dto);
 	}
 	
 	public List<List<CoinPriceDto>> getSameLengthCoinPrices (List<String> coinNames){
