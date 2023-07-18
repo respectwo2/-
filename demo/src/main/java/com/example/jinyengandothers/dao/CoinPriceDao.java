@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.ta4j.core.BarSeries;
 
+import com.example.jinyengandothers.dto.CoinIdValueDto;
 import com.example.jinyengandothers.dto.CoinPriceDto;
 import com.example.jinyengandothers.service.BackTestingServiceImpl;
 
@@ -26,7 +27,11 @@ public class CoinPriceDao {
 	@Autowired
 	private CoinPriceMapper coinPriceMapper;
 	
-	public List<String> getAllTickerNames(){
+	public List<CoinIdValueDto> selectAllCoinIdValues(){
+		return coinPriceMapper.selectAllCoinIdValues();
+	}
+	
+	public List<String> selectAllTickerNames(){
 		return coinPriceMapper.selectAllCoinNames();
 	}
 	
@@ -38,11 +43,11 @@ public class CoinPriceDao {
 		return coinPriceMapper.selectCoinAllPrice(ticker);
 	}
 
-	public int getCoinPriceCount(String coinName) {
-		return coinPriceMapper.getCoinPriceCount(coinName);
+	public int selectCoinPriceCount(String coinName) {
+		return coinPriceMapper.selectCoinPriceCount(coinName);
 	}
 	
-	public List<List<CoinPriceDto>> getSameLengthCoinPrices (List<String> coinNames){
+	public List<List<CoinPriceDto>> selectSameLengthCoinPrices (List<String> coinNames){
 		List<Integer> coinPriceDtoCount = new ArrayList<>();
 		List<List<CoinPriceDto>> coinPricesList = new ArrayList<>();
 		

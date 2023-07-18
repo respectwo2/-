@@ -1,23 +1,61 @@
-( async() => { const json = {
-  "elements": [
-    {
-      "type": "tagbox",
-      "isRequired": true,
-      "choicesByUrl": {
-        "url": "http://localhost:8080/api/tickername"
-      },
-      "name": "tickername",
-      "title": "백테스트를 진행할 코인을 골라주세요",
-      "description": "Please select all that apply."
-    }
-  ],
-  "showQuestionNumbers": false
-};
+$("input[name=selectedcoin]").on("click", (e) => {
+	const divRatio = document.getElementById("divRatio");
+	if (e.target.checked) {
+		let newRatio = document.createElement('p');
+		newRatio.innerHTML = "<input type='number' id='ratio' name=" + e.target.value + ">";
+		divRatio.appendChild(newRatio);
+	} else {
+		let oldRatio = document.querySelector("input[name=" + e.target.value + "]");
+		document.getElementById("divRatio").removeChild(oldRatio.parentNode);
+	}
+})
 
-const survey = new Survey.Model(json);
-survey.onComplete.add((sender, options) => {
-    console.log(JSON.stringify(sender.data, null, 3));
-});
+$("#submitbtn").click((e) => {
 
-$("#surveyElement").Survey({ model: survey });
-})();
+	const tagboxElements = document.querySelectorAll("input[name=selectedcoin]:checked");
+	const coinRatioElements = document.querySelectorAll("input[id=ratio]");
+	const strategyNames = document.querySelectorAll("input[name=strategy]:checked");
+
+	var coinTickers = [];
+	var coinRatios = [];
+	var strategies = [];
+
+	tagboxElements.forEach((tagboxElement) => {
+		coinTickers.push(tagboxElement.value)
+	})
+
+	coinRatioElements.forEach((coinRatioElement) => {
+		coinRatios.push(coinRatioElement.value)
+	})
+
+	strategyNames.forEach((strategyName) => {
+		strategies.push(strategyName.value)
+	})
+
+
+	if (tagboxElements.length > 1 && strategies.length > 1) {
+		fetch("http://localhost:8080/api/chartdata", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					coins: coinTickers,
+					ratios: coinRatios,
+					strategies: strategies
+				}),
+			}).then(response => {
+				console.log(response.json());
+			}).then(result => {
+				console.log(result);
+			});
+			
+			/*console.log(backtestChartdatas); // a 가, b 나, c 다
+
+			for (var backtestChartdata in backtestChartdatas) {
+				console.log(backtestChartdata); // a 가, b 나, c 다
+			}*/
+		
+
+	}
+})

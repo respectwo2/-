@@ -6,12 +6,16 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import com.example.jinyengandothers.dto.CoinIdValueDto;
 import com.example.jinyengandothers.dto.CoinPriceDto;
 
 @Mapper
 public interface CoinPriceMapper {
 	
-	@Select("select distinct coin_ticker from coin_price")
+	@Select("select distinct coin_id, coin_ticker from coin_price")
+	List<CoinIdValueDto> selectAllCoinIdValues();
+	
+	@Select("select distinct coin_id, coin_ticker from coin_price")
 	List<String> selectAllCoinNames();
 
 	@Select("select * from coin_price")
@@ -21,5 +25,5 @@ public interface CoinPriceMapper {
 	List<CoinPriceDto> selectCoinAllPrice(@Param("ticker") String coinTicker);
 	
 	@Select("select count(*) from coin_price where coin_ticker=#{ticker}")
-	int getCoinPriceCount(@Param("ticker") String coinName);
+	int selectCoinPriceCount(@Param("ticker") String coinName);
 }

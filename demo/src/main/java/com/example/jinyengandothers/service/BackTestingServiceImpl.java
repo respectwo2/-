@@ -64,7 +64,7 @@ public class BackTestingServiceImpl{
 	private void loadCoinDataTimeSeries(List<CoinRatioDto> coinRatios) {
 		List<String> coinNames = coinRatios.stream().map(e -> e.getCoinName()).collect(Collectors.toCollection(ArrayList::new));
 		
-		List<List<CoinPriceDto>> coinPricesList = coinPriceDao.getSameLengthCoinPrices(coinNames);
+		List<List<CoinPriceDto>> coinPricesList = coinPriceDao.selectSameLengthCoinPrices(coinNames);
 		
 		for(List<CoinPriceDto> coinPrices : coinPricesList) {
 			BarSeries coinHistoricalPrices = new BaseBarSeries(coinNames.get(coinPricesList.indexOf(coinPrices)));
@@ -110,15 +110,15 @@ public class BackTestingServiceImpl{
 			break;
 		case "Bollinger1":
 //			매수신호: 종가 < 볼린저밴드 하한선
-			entryRule = new UnderIndicatorRule(closePrice, bollinger.lower());
+			entryRule = new CrossedUpIndicatorRule(bollinger.lower(),closePrice);
 //			매도신호: 종가 > 볼린저밴드 상한선 
-			exitRule = new OverIndicatorRule(closePrice, bollinger.upper());
+			exitRule = new CrossedDownIndicatorRule(bollinger.upper(),closePrice);
 			break;
 		case "Bollinger2":
 //			매수신호: 종가 > 볼린저밴드 상한선
-			entryRule = new OverIndicatorRule(closePrice, bollinger.upper());
+			entryRule = new CrossedUpIndicatorRule(closePrice, bollinger.upper());
 //			매도신호: 종가 < 볼린저밴드 상한선
-			exitRule = new UnderIndicatorRule(closePrice, bollinger.upper());
+			exitRule = new CrossedDownIndicatorRule(closePrice, bollinger.upper());
 			break;
 		case "VBI":
 			entryRule = new InPipeRule(new VolatilityIndicator(barSeries), new HighPriceIndicator(barSeries), new LowPriceIndicator(barSeries));
@@ -180,9 +180,7 @@ public class BackTestingServiceImpl{
 				BarSeriesManager barManager = new BarSeriesManager(barSeries);
 				TradingRecord tradingRecord = barManager.run(createStrategy(strategyName, barSeries));
 				CashFlow cashFlow = new CashFlow(barSeries, tradingRecord);
-				LOG.info("500번째 : "+ barSeries.getBar(500).getClosePrice().longValue());
-				LOG.info("tradingRecord 가격 :" +tradingRecord.getLastEntry().getNetPrice().longValue());
-				LOG.info("500번째 현금흐름 : " + cashFlow.getValue(500).doubleValue());
+				
 				cashFlows.add(cashFlow);
 //				cashFlows.add(new CashFlow(barSeries, tradingRecord));
 				if( currentBarSeriesIndex == 0) {

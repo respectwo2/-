@@ -3,12 +3,12 @@
  */
 (async () => {	
 
-    const data = await fetch(
+    /*const data = await fetch(
         'http://localhost:8080/api/chartdata'
-    ).then(response => response.json());
+    ).then(response => response.json());*/
 
-	console.log(data);
-    /*// create the chart
+/*	console.log(data);
+*/    /*// create the chart
     Highcharts.stockChart('container2', {
         rangeSelector: {
             selected: 1

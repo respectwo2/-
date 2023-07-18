@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.ta4j.core.reports.TradingStatement;
 
+import com.example.jinyengandothers.dao.CoinPriceDao;
 import com.example.jinyengandothers.dto.CoinCombiCashflowDto;
 import com.example.jinyengandothers.dto.CoinRatioDto;
 import com.example.jinyengandothers.service.BackTestingServiceImpl;
@@ -28,23 +29,11 @@ public class BackTestController {
 
 	
 	@Autowired
-	BackTestingServiceImpl backtesting;
+	CoinPriceDao coinPriceDao;
 	
 	@GetMapping("")
-	public String backTestPage() {
-//		List<CoinRatioDto> arr = new ArrayList<>();
-//		List<String> arr2 = new ArrayList<>();
-//
-//		arr.add(new CoinRatioDto("ETH",0.1));
-//		arr.add(new CoinRatioDto("ALGO",0.9));
-//		arr2.add("Bollinger1");
-//		arr2.add("SMA");
-//		
-//		List<CoinCombiCashflowDto> coinCombinationCashflows = backtesting.getCoinCombinationResult(arr,arr2,1000000);
-//		LOG.info(coinCombinationCashflows.toString());
-//		
+	public String backTestPage( Model model) {
+		model.addAttribute("coins",coinPriceDao.selectAllCoinIdValues());
 		return "backtest";
 	}
-	
-	
 }

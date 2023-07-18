@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,67 +11,72 @@
 <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
 <!-- Include the library in the page -->
 <script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
-<!-- <style>
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 360px; 
-    max-width: 800px;
-    margin: 1em auto;
-}
-
-.highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-}
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-.highcharts-data-table th {
-	font-weight: 600;
-    padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-}
-
-</style> -->
-
 </head>
 
 <body>
+	<link rel="stylesheet" type="text/css" href="../css/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../css/icon.css">
+	<link rel="stylesheet" type="text/css" href="../css/demo.css">
+	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
 
-<script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
-<script src="https://unpkg.com/survey-jquery@1.9.97/survey.jquery.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/survey-jquery@1.9.97/defaultV2.min.css" />
-<script type="text/javascript" src="../js/mvrvRatio.js" ></script>
-<script type="text/javascript" src="../js/backtest.js"></script>
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        Example how to use Highcharts with Santiment API. We are fetching DAA and plot it.
-    </p>
-</figure>
-<figure class="highcharts-figure">
-    <div id="container2"></div>
-    <p class="highcharts-description">
-        Example how to use Highcharts with Santiment API. We are fetching DAA and plot it.
-    </p>
-</figure>
+	<!-- <script type="text/javascript" src="../js/mvrvRatio.js" ></script>
+ -->
+	<script type="text/javascript" src="../js/backtest.js"></script>
+	
+	<div class="container">
+  <ul class="ks-cboxtags">
+  	<c:forEach var="coin" items="${coins}">
+  	    <li><input type="checkbox" name="selectedcoin" id="checkboxOne" value="${coin.coinTicker}"><label for="checkboxOne">${coin.coinTicker}</label></li>
+  	</c:forEach>
+  </ul>
+  <div id="divRatio"></div>
 
-<div id="surveyElement"></div>
-<script src="../js/backtestVariable.js"></script>
+</div>
+
+	<div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="strategy"
+				value="SMA"> <label class="form-check-label"
+				for="inlineCheckbox1">단순이동평균선</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="strategy"
+				value="EMA"> <label class="form-check-label"
+				for="inlineCheckbox2">지수이동평균선</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="strategy"
+				value="Bollinger1"> <label class="form-check-label"
+				for="inlineCheckbox2">볼린저밴드상하한</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="strategy"
+				value="Bollinger2"> <label class="form-check-label"
+				for="inlineCheckbox2">볼린저밴드상한</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="strategy"
+				value="RSI"> <label class="form-check-label"
+				for="inlineCheckbox2">상대강도지수</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox6" name="strategy"
+				value="Momentum"> <label class="form-check-label"
+				for="inlineCheckbox2">추세추종</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" id="inlineCheckbox7" name="strategy"
+				value="Supertrend"> <label class="form-check-label"
+				for="inlineCheckbox2">슈퍼트렌드</label>
+		</div>
+	</div>
+
+	<input id="submitbtn" type="button" value="전송" />
+
+	<script src="../js/backtestVariable.js"></script>
+
+	<div id="surveyElement"></div>
 
 </body>
 </html>
