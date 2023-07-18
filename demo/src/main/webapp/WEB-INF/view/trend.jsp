@@ -60,8 +60,7 @@
 							<p class="card-subtitle mb-0">${currentTime}</p>
 						</div>
 					</div>
-					<c:forEach items="${coins}" var="coin" varStatus="status">
-						<c:if test="${status.index >= fn:length(coins) -  5}">
+					<c:forEach  varStatus="index" begin="${fn:length(coins)  - 1}" end="${fn:length(coins)  - 6}">
 							<div class="card shadow-none mb-0 mt-3">
 								<div class="d-flex align-items-center gap-3 py-3 border-bottom">
 									<div
@@ -69,28 +68,27 @@
 										<i class="cc ETH fs-6"></i>
 									</div>
 									<div>
-										<h6 class="mb-0 fw-semibold">${coin.coinName}</h6>
+										<h6 class="mb-0 fw-semibold">${coin[index].coinName}</h6>
 									</div>
 									<c:choose>
 										<c:when test="${coin.priceChange > 0}">
 											<div class="ms-auto text-end">
-												<span class="text-success">${coin.priceChange}%</span>
+												<span class="text-success">${coin[index].priceChange}%</span>
 											</div>
 										</c:when>
 										<c:when test="${coin.priceChange == 0}">
 											<div class="ms-auto text-end">
-												<span class="text-dark">${coin.priceChange}%</span>
+												<span class="text-dark">${coin[index].priceChange}%</span>
 											</div>
 										</c:when>
 										<c:when test="${coin.priceChange < 0}">
 											<div class="ms-auto text-end">
-												<span class="text-danger">${coin.priceChange}%</span>
+												<span class="text-danger">${coin[index].priceChange}%</span>
 											</div>
 										</c:when>
 									</c:choose>
 								</div>
 							</div>
-						</c:if>
 					</c:forEach>
 				</div>
 			</div>

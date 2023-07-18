@@ -2,11 +2,15 @@ package com.example.jinyengandothers.dto;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Data
-public class CoinPrice {
+@AllArgsConstructor
+@NoArgsConstructor
+public class CoinPriceDto {
 	
 	private int coinPriceId, coinId;
 	private String coinTicker;
@@ -18,7 +22,7 @@ public class CoinPrice {
 //coin_price_id int auto_increment,
 //coin_id int,
 //coin_ticker varchar2(10),
-//end_time bigint,
+//end_time varchar2(50),
 //open_price double,
 //high_price double,
 //low_price double,
