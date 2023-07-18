@@ -15,7 +15,13 @@ for (let i = 0; i < tickerList.length; i++) {
 
 	// Create Market column and set its value
 	const marketCell = document.createElement('td');
-	marketCell.textContent = tickerList[i].substr(4);
+	ticker =tickerList[i].substr(4);
+	
+	const link = document.createElement('a');
+	link.href = "http://localhost:8080/main?tvwidgetsymbol=" + ticker;
+	link.textContent = ticker;
+	
+	marketCell.append(link);
 	newRow.appendChild(marketCell);
 	
 	for (let j = 0; j < 5; j++) {
