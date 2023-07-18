@@ -124,48 +124,39 @@ public class CoinInfoService {
 		return coins;
 	}
 	
-	public CoinWeekChangeDto[] getCoinDailyVolume() {
-		// Get all coin ticker names
-		List<String> coinNames = getAlltickers();
+	/*
+	 * public CoinWeekChangeDto[] getCoinDailyVolume() { // Get all coin ticker
+	 * names List<String> coinNames = getAlltickers();
+	 * 
+	 * String url = "https://api.upbit.com/v1/ticker";
+	 * 
+	 * HttpClient httpClient = HttpClient.newHttpClient();
+	 * 
+	 * CoinWeekChangeDto[] coins = new CoinWeekChangeDto[coinNames.size()];
+	 * 
+	 * int idx = 0; for (String coinName : coinNames) { coinName = "KRW-" +
+	 * coinName;
+	 * 
+	 * // Get current price HttpRequest currentPriceRequest =
+	 * HttpRequest.newBuilder() .uri(URI.create(url + "?market=" +
+	 * coinName)).GET().build(); try { HttpResponse<String> currentPriceResponse =
+	 * httpClient.send(currentPriceRequest, HttpResponse.BodyHandlers.ofString());
+	 * if (currentPriceResponse.statusCode() == 200) { String response =
+	 * currentPriceResponse.body(); ObjectMapper objectMapper = new ObjectMapper();
+	 * JsonNode jsonNode = objectMapper.readTree(response); JsonNode firstObject =
+	 * jsonNode.get(0); nowPrice = firstObject.get("trade_price").asDouble();
+	 * currentTime = firstObject.get("candle_date_time_kst").asText(); } else {
+	 * log.warn("Failed to fetch price from one week ago for " + coinName +
+	 * ". Status code: " + currentPriceResponse.statusCode()); } } catch (Exception
+	 * e) { e.printStackTrace(); }
+	 * 
+	 * 
+	 * }
+	 */
 
-		String url = "https://api.upbit.com/v1/ticker";
-
-		HttpClient httpClient = HttpClient.newHttpClient();
-
-		CoinWeekChangeDto[] coins = new CoinWeekChangeDto[coinNames.size()];
-
-		int idx = 0;
-		for (String coinName : coinNames) {
-			coinName = "KRW-" + coinName;
-
-			// Get current price
-			HttpRequest currentPriceRequest = HttpRequest.newBuilder()
-					.uri(URI.create(url + "?market=" + coinName)).GET().build();
-			try {
-				HttpResponse<String> currentPriceResponse = httpClient.send(currentPriceRequest,
-						HttpResponse.BodyHandlers.ofString());
-				if (currentPriceResponse.statusCode() == 200) {
-					String response = currentPriceResponse.body();
-					ObjectMapper objectMapper = new ObjectMapper();
-					JsonNode jsonNode = objectMapper.readTree(response);
-					JsonNode firstObject = jsonNode.get(0);
-					nowPrice = firstObject.get("trade_price").asDouble();
-					currentTime = firstObject.get("candle_date_time_kst").asText();
-				} else {
-					log.warn("Failed to fetch price from one week ago for " + coinName + ". Status code: "
-							+ currentPriceResponse.statusCode());
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			
-		}
-
-		Arrays.sort(coins);
-		log.info("주간 상승률 수집");
-		return coins;
-	}
+	/*
+	 * Arrays.sort(coins); log.info("주간 상승률 수집"); return coins; }
+	 */
 
 	@Scheduled(cron = "0 */10 * * * *") // Run every 10 minutes
 	public void updateCoinWeekChangeDto() {

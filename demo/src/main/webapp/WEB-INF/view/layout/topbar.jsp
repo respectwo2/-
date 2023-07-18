@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -16,35 +16,35 @@
   {
   "symbols": [
     {
-      "description": "ºñÆ®ÄÚÀÎ",
+      "description": "ë¹„íŠ¸ì½”ì¸",
       "proName": "UPBIT:BTCKRW"
     },
     {
-      "description": "ÀÌ´õ¸®¿ò",
+      "description": "ì´ë”ë¦¬ì›€",
       "proName": "UPBIT:ETHKRW"
     },
     {
-      "description": "¸ŞÅ»",
+      "description": "ë©”íƒˆ",
       "proName": "UPBIT:MTLKRW"
     },
     {
-      "description": "µµÁöÄÚÀÎ",
+      "description": "ë„ì§€ì½”ì¸",
       "proName": "UPBIT:DOGEKRW"
     },
     {
-      "description": "¸®ÇÃ",
+      "description": "ë¦¬í”Œ",
       "proName": "UPBIT:XRPKRW"
     },
     {
-      "description": "½ºÅÃ½º",
+      "description": "ìŠ¤íƒìŠ¤",
       "proName": "UPBIT:STXKRW"
     },
     {
-      "description": "¿¡ÀÌºê",
+      "description": "ì—ì´ë¸Œ",
       "proName": "UPBIT:AAVEKRW"
     },
     {
-      "description": "ÄöÅÒ",
+      "description": "í€€í…€",
       "proName": "UPBIT:QTUMKRW"
     }
   ],

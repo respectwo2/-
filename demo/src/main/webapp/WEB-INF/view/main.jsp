@@ -14,12 +14,11 @@
 							<ul class="nav nav-pills" role="tablist">
 								<li class="nav-item" role="presentation"><a
 									class="nav-link active" data-bs-toggle="tab" href="#navpill-1"
-									role="tab" aria-selected="true"> <span>Tab 1</span>
+									role="tab" aria-selected="true"> <span class= "selected chart">선형 차트</span>
 								</a></li>
 								<li class="nav-item" role="presentation"><a
 									class="nav-link" data-bs-toggle="tab" href="#navpill-2"
-									role="tab" aria-selected="false" tabindex="-1"> <span>Tab
-											2</span>
+									role="tab" aria-selected="false" tabindex="-1"> <span class= "selected chart">캔들형 차트</span>
 								</a></li>
 							</ul>
 							<div class="tab-content border mt-2">
@@ -146,9 +145,13 @@
 			<div class="card w-100">
 				<div class="card-body p-4">
 					<div class="mb-4">
-						<h5 class="card-title fw-semibold">Recent Transactions</h5>					
-						<h6 id="binancePrice"></h6>
-						<h5 id="kimp"></h5>
+						<h5 class="card-title fw-semibold">Price Difference</h5>
+						<br>					
+						<a>바이낸스 가격</a>
+						<h4 id="binancePrice"></h4><br>
+						<h5>업비트 가격이 바이낸스 가격보다 </h5>
+						<h4 id="kimp"></h4>
+						<h5>높게 형성되어 있어요</h5>
 					</div>
 				</div>
 			</div>
@@ -173,7 +176,7 @@
 						<h5 class="card-title fw-semibold mb-4">Coin Issuer</h5>
 						<div class="card mb-0">
 							<div class="card-body p-4">
-								<p id="info">${issuer}</p>
+								<h5 id="info">${issuer}</h5>
 							</div>
 						</div>
 					</div>
@@ -183,7 +186,6 @@
 	</div>
 </div>
 <%@ include file="layout/footer.jsp"%>
-<
 <script type="text/javascript">
 const tickerValue = "${ticker}";
 </script>

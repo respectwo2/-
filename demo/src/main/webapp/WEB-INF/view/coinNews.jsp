@@ -1,13 +1,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="layout/header.jsp"%>
 
+
 <div class="container-fluid">
     <div class="card">
         <button type="button" class="btn btn-primary dropdown-toggle"
             data-bs-toggle="dropdown" aria-expanded="false">Category List</button>
         <ul class="dropdown-menu">
             <c:set var="categories"
-                value="${['AAVE', 'ALGO', 'APT', 'ATOM', 'AVAX', 'BCH', 'BTC', 'CRO', 'DOGE', 'DOT', 'EOS', 'ETC', 'ETH', 'GRS', 'HBAR', 'HIFI', 'KAVA', 'LINK', 'MATIC', 'MBL', 'MTL', 'NEAR', 'SAND', 'SHIB', 'SOL', 'STX', 'T', 'TRX', 'VET', 'WAVES', 'XLM', 'XRP']}" />
+                value="${['AAVE', 'ALGO', 'APT', 'ATOM', 'AVAX', 'BCH', 'BTC', 'CRO', 'DOGE', 'DOT', 'EOS', 'ETC', 'ETH', 'GRS', 'HBAR', 'HIFI', 'KAVA', 'LINK', 'MATIC', 'MBL', 'MTL', 'NEAR', 'SAND', 'SHIB', 'SOL', 'STX', 'TRX', 'VET', 'WAVES', 'XLM', 'XRP']}" />
             <li class="list-group-item">
                 <div class="d-flex flex-wrap gap-2" style="margin-left: 10px">
                     <c:forEach items="${categories}" var="category">
