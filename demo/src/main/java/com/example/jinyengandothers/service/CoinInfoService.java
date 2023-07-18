@@ -182,6 +182,7 @@ public class CoinInfoService {
 		coins24Acc = getCoinDailyVolume();
 	}
 
+
 	@Scheduled(cron = "0 */10 * * * *") // Run every 10 minutes
 	public void updateCoinWeekChange() {
 		coins = getWeeklyIncreaseRate();

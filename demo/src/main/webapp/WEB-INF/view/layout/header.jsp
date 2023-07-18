@@ -7,18 +7,30 @@
 <meta charset="UTF-8">
 
 <style>
-#info {
-	line-height: 3;
+#info {line-height:3; 
+}
+.card-body { margin-right:50px;
+}
+.form-control{ margin-right:50px;
+}
+.input-group{ margin-right:950px;
+
+}
+#indexinfo{ font-size: 30px;
+}
+.left-sidebar{
+	background-color:#AFEEEE;
 }
 
-.card-body {
-	margin-right: 50px;
-}
+/* .navbar.navbar-expand-lg.navbar-light {
+  border: 1px solid #5F9EA0;
+  border-radius: 5px;
+} */
 </style>
 
-<title>Insert title here</title>
+<title>Coinnable</title>
 <link rel="shortcut icon" type="image/png"
-	href="../images/logos/favicon.png" />
+	href="../images/logos/coinnablefavicon.png" />
 <link rel="stylesheet" href="../css/styles.min.css" />
 <script src="https://code.jquery.com/jquery-3.7.0.js"
 	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
@@ -33,29 +45,102 @@
 		<!--  Main wrapper -->
 		<div class="body-wrapper">
 			<!--  Header Start -->
+			
+			<!--  search 부분 -->
 			<header class="app-header">
-				<nav class="navbar navbar-expand-lg navbar-light">
-					<ul class="navbar-nav">
-						<li class="nav-item d-block d-xl-none"><a
-							class="nav-link sidebartoggler nav-icon-hover"
-							id="headerCollapse" href="javascript:void(0)"> <i
-								class="ti ti-menu-2"></i>
-						</a></li>
-						<li class="nav-item"><a class="nav-link nav-icon-hover"
-							href="javascript:void(0)"> <i class="ti ti-bell-ringing"></i>
-								<div class="notification bg-primary rounded-circle"></div>
-						</a></li>
-					</ul>
-					<div class="navbar-collapse justify-content-end px-0"
-						id="navbarNav">
-						<ul
-							class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-							<form id="searchForm">
-								<input type="search" id="searchInput">
-								<button type="submit" class="btn btn-primary">Search</button>
-							</form>
-						</ul>
-					</div>
-				</nav>
+				<nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <i class="bx bx-search fs-4 lh-0">
+                  </i>
+                  <a id="searchButton">
+      <img src="../images/logos/search.PNG"/>
+    </a>
+    <input
+      id="searchInput"
+      type="text"
+      class="form-control border-0 shadow-none"
+      placeholder="Search..."
+      aria-label="Search..."
+    />
+                </div>
+              </div>
+              <!-- /Search -->
+              
+              
+            </div>
+            <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- Place this tag where you want the button to render. -->
+                <li class="nav-item lh-1 me-3">
+                  <h4>About Coinnable</h4>
+                </li>
+              </ul>
+          </nav>
+			<div class="topbar">
+			<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://kr.tradingview.com/" rel="noopener nofollow" target="_blank"></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+  {
+  "symbols": [
+    {
+      "description": "비트코인",
+      "proName": "UPBIT:BTCKRW"
+    },
+    {
+      "description": "이더리움",
+      "proName": "UPBIT:ETHKRW"
+    },
+    {
+      "description": "메탈",
+      "proName": "UPBIT:MTLKRW"
+    },
+    {
+      "description": "도지코인",
+      "proName": "UPBIT:DOGEKRW"
+    },
+    {
+      "description": "리플",
+      "proName": "UPBIT:XRPKRW"
+    },
+    {
+      "description": "스택스",
+      "proName": "UPBIT:STXKRW"
+    },
+    {
+      "description": "에이브",
+      "proName": "UPBIT:AAVEKRW"
+    },
+    {
+      "description": "퀀텀",
+      "proName": "UPBIT:QTUMKRW"
+    }
+  ],
+  "colorTheme": "light",
+  "isTransparent": false,
+  "showSymbolLogo": true,
+  "largeChartUrl": "http://localhost:8080/main",
+  "locale": "kr"
+}
+  </script>
+</div>
+			</div>
+			
 			</header>
 			<!--  Header End -->
+<br>
+<br>
+<br>
+<br>
+<br>
