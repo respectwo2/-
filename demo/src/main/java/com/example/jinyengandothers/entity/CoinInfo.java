@@ -4,10 +4,10 @@ import lombok.Data;
 
 @Data
 public class CoinInfo {
-	private int ticker_id;
+	private int tickerId;
 	private String ticker;
-	private String ticker_name;
-	private String ticker_issuer;
-	private String ticker_tfeature;
-	private String ticker_info;
+	private String tickerName;
+	private String tickerIssuer;
+	private String tickerTfeature;
+	private String tickerInfo;
 }

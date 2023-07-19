@@ -2,7 +2,7 @@ $("input[name=selectedcoin]").on("click", (e) => {
 	const divRatio = document.getElementById("divRatio");
 	if (e.target.checked) {
 		let newRatio = document.createElement('p');
-		newRatio.innerHTML = "<input type='number' id='ratio' name=" + e.target.value + ">";
+		newRatio.innerHTML = e.target.value + " : <input class='gap-2' type='number' id='ratio' name=" + e.target.value + ">";
 		divRatio.appendChild(newRatio);
 	} else {
 		let oldRatio = document.querySelector("input[name=" + e.target.value + "]");
@@ -30,11 +30,9 @@ $("#submitbtn").click((e) => {
 
 	strategyNames.forEach((strategyName) => {
 		strategies.push(strategyName.value)
-	}) 
-	
-	let ratioSum = coinRatios.reduce(function add(sum, currValue) {  return sum + Number(currValue);}, 0);
-	console.log(ratioSum)
+	})
 
+	let ratioSum = coinRatios.reduce(function add(sum, currValue) { return sum + Number(currValue); }, 0);
 
 	if (tagboxElements.length >= 1 && strategies.length >= 1 && ratioSum == 1) {
 		$.ajax({
@@ -50,23 +48,26 @@ $("#submitbtn").click((e) => {
 			success: function(datas) {
 				for (var data in datas) {
 					var g = document.createElement("div");
-					g.setAttribute("id", "chartDiv"+data);
-					
-					document.body.appendChild(g);
-					
-					datas[data].endDates = datas[data].endDates.map(val=> {
-						let dt = new Date(val*1000);
-						return dt.toLocaleDateString({format:"yy-mm-dd"});
+					g.setAttribute("id", "chartDiv" + data);
+
+					document.getElementById("divChart").appendChild(g);
+
+					datas[data].endDates = datas[data].endDates.map(val => {
+						let dt = new Date(val * 1000);
+						return dt.toLocaleDateString({ format: "yy-mm-dd" });
 					});
-					var chart = Highcharts.chart('chartDiv'+data, {
+					var chart = Highcharts.chart('chartDiv' + data, {
 						chart: {
-							zoomType: 'xy'
+							zoomType: 'xy',
+							animation: false
 						},
 						title: {
-							text: '백테스트 결과 :' +datas[data].coinNames +" + "+ datas[data].strategyName,
+							text: '백테스트 결과 :' + datas[data].coinNames + " + " + datas[data].strategyName,
 							align: 'left'
 						},
 						xAxis: [{
+							tickInterval: 365,
+							title: '',
 							categories: datas[data].endDates,
 							crosshair: true,
 						}],

@@ -1,47 +1,34 @@
 package com.example.jinyengandothers.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.jinyengandothers.entity.CoinInfo;
-import com.example.jinyengandothers.mapper.CoinInfoMapper;
-
+import com.example.jinyengandothers.entity.UBAIPrice;
+import com.example.jinyengandothers.entity.UBMIPrice;
+import com.example.jinyengandothers.mapper.IndexPriceMapper;
 
 @Service
 public class IndexServiceImpl implements IndexService {
 
-    private final CoinInfoMapper coininfoMapper;
+    private final IndexPriceMapper indexpriceMapper;
 
     @Autowired
-    public IndexServiceImpl(CoinInfoMapper coininfoMapper) {
-        this.coininfoMapper = coininfoMapper;
+    public IndexServiceImpl(IndexPriceMapper indexpriceMapper) {
+        this.indexpriceMapper = indexpriceMapper;
     }
 
     @Override
-    public CoinInfo getCoinInfoById(int ticker_id) {
-        CoinInfo coininfo = coininfoMapper.getCoinInfoById(ticker_id);
-        return coininfo;
+    public List<UBMIPrice> getAllUBMIPrices() {
+        return indexpriceMapper.getAllUBMIPrices();
     }
 
-	@Override
-	public CoinInfo getCoinInfoByTicker(String ticker) {
-		return coininfoMapper.getCoinInfoByTicker(ticker);
-	}
+    @Override
+    public List<UBAIPrice> getAllUBAIPrices() {
+        return indexpriceMapper.getAllUBAIPrices();
+    }
+    
+    
 
-	@Override
-	public CoinInfo getCoinInfoByTickerName(String ticker_name) {
-		return coininfoMapper.getCoinInfoByTickerName(ticker_name);
-	}
-
-	@Override
-	public CoinInfo getCoinInfoBySearch(String search) {
-		return coininfoMapper.getTickerBySearch(search);
-	}
-	
 }
-
-
-
-
-
-

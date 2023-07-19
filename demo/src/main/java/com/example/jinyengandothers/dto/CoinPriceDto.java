@@ -28,6 +28,3 @@ public class CoinPriceDto {
 //low_price double,
 //close_price double,
 //volume double,
-//value double,
-//primary key(coin_price_id)
-//);

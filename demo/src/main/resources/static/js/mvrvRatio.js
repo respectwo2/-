@@ -1,6 +1,3 @@
-/**
- * 
- */
 (async () => {
 
 	const client = new Apollo.lib.ApolloClient({

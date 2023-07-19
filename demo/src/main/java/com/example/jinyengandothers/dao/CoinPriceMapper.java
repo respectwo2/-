@@ -2,6 +2,7 @@ package com.example.jinyengandothers.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -15,7 +16,7 @@ public interface CoinPriceMapper {
 	@Select("select distinct coin_id, coin_ticker from coinprice")
 	List<CoinIdValueDto> selectAllCoinIdValues();
 	
-	@Select("select distinct coin_id, coin_ticker from coinprice")
+	@Select("select distinct coin_ticker from coinprice")
 	List<String> selectAllCoinNames();
 
 	@Select("select * from coinprice")
@@ -26,4 +27,11 @@ public interface CoinPriceMapper {
 	
 	@Select("select count(*) from coinprice where coin_ticker=#{ticker}")
 	int selectCoinPriceCount(@Param("ticker") String coinName);
+	
+	@Select("SELECT coin_id FROM coinprice WHERE coin_ticker = #{ticker} LIMIT 1")
+	int selectCoinIdByCoinTicker(@Param("ticker") String coinTicker);
+	
+	@Insert("INSERT INTO coinprice (coin_ticker, coin_id, end_time, open_price, high_price, low_price, close_price, volume, value) " +
+	        "VALUES (#{coinPrice.coinTicker}, #{coinPrice.coinId}, #{coinPrice.endTime}, #{coinPrice.openPrice}, #{coinPrice.highPrice}, #{coinPrice.lowPrice}, #{coinPrice.closePrice}, #{coinPrice.volume}, #{coinPrice.value})")
+	void insertCoinPrice(@Param("coinPrice") CoinPriceDto coinPrice);
 }

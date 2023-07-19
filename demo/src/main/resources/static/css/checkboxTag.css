@@ -64,6 +64,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 p {
   display: inline;
+  margin-left: 20px;
 }
 
 input[id="ratio"].invalid{
