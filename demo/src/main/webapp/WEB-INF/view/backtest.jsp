@@ -1,19 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>BackTestResult</title>
+<%@include file="layout/header.jsp"%>
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
 <!-- Include the library in the page -->
 <script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
-</head>
-
-<body>
 	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/checkboxTag.css">
 	
@@ -68,7 +61,6 @@
 	<input id="submitbtn" type="button" value="전송" />
 
 	<script src="../js/backtestVariable.js"></script>
-</body>
-</html>
+
 
 
