@@ -43,7 +43,7 @@ public class BackTestRestController {
 	@GetMapping("/cointagbox")
 	public @ResponseBody ResponseEntity<List<CoinIdValueDto>> getCoinIdValues(){
 		return ResponseEntity.ok(coinPriceDao.selectAllCoinIdValues());
-	}
+	} 
 	
 	@PostMapping("/chartdata")
 	public @ResponseBody ResponseEntity<List<CoinCombiCashflowDto>> getBackTestResult(@RequestBody BacktestVariableDto backtestVariable){

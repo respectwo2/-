@@ -14,20 +14,13 @@
 </head>
 
 <body>
-	<link rel="stylesheet" type="text/css" href="../css/easyui.css">
-	<link rel="stylesheet" type="text/css" href="../css/icon.css">
-	<link rel="stylesheet" type="text/css" href="../css/demo.css">
 	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
-	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
-
-	<!-- <script type="text/javascript" src="../js/mvrvRatio.js" ></script>
- -->
-	<script type="text/javascript" src="../js/backtest.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/checkboxTag.css">
 	
 	<div class="container">
   <ul class="ks-cboxtags">
   	<c:forEach var="coin" items="${coins}">
-  	    <li><input type="checkbox" name="selectedcoin" id="checkboxOne" value="${coin.coinTicker}"><label for="checkboxOne">${coin.coinTicker}</label></li>
+  	    <li><input type="checkbox" name="selectedcoin" id="checkbox${coin.coinId}" value="${coin.coinTicker}"><label for="checkbox${coin.coinId }">${coin.coinTicker}</label></li>
   	</c:forEach>
   </ul>
   <div id="divRatio"></div>
@@ -48,36 +41,33 @@
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="strategy"
 				value="Bollinger1"> <label class="form-check-label"
-				for="inlineCheckbox2">볼린저밴드상하한</label>
+				for="inlineCheckbox3">볼린저밴드상하한</label>
 		</div>
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="strategy"
 				value="Bollinger2"> <label class="form-check-label"
-				for="inlineCheckbox2">볼린저밴드상한</label>
+				for="inlineCheckbox4">볼린저밴드상한</label>
 		</div>
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="strategy"
 				value="RSI"> <label class="form-check-label"
-				for="inlineCheckbox2">상대강도지수</label>
+				for="inlineCheckbox5">상대강도지수</label>
 		</div>
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="checkbox" id="inlineCheckbox6" name="strategy"
 				value="Momentum"> <label class="form-check-label"
-				for="inlineCheckbox2">추세추종</label>
+				for="inlineCheckbox6">추세추종</label>
 		</div>
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="checkbox" id="inlineCheckbox7" name="strategy"
 				value="Supertrend"> <label class="form-check-label"
-				for="inlineCheckbox2">슈퍼트렌드</label>
+				for="inlineCheckbox7">슈퍼트렌드</label>
 		</div>
 	</div>
 
 	<input id="submitbtn" type="button" value="전송" />
 
 	<script src="../js/backtestVariable.js"></script>
-
-	<div id="surveyElement"></div>
-
 </body>
 </html>
 

@@ -30,32 +30,116 @@ $("#submitbtn").click((e) => {
 
 	strategyNames.forEach((strategyName) => {
 		strategies.push(strategyName.value)
-	})
+	}) 
+	
+	let ratioSum = coinRatios.reduce(function add(sum, currValue) {  return sum + Number(currValue);}, 0);
+	console.log(ratioSum)
 
 
-	if (tagboxElements.length > 1 && strategies.length > 1) {
-		fetch("http://localhost:8080/api/chartdata", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					coins: coinTickers,
-					ratios: coinRatios,
-					strategies: strategies
-				}),
-			}).then(response => {
-				console.log(response.json());
-			}).then(result => {
-				console.log(result);
-			});
-			
-			/*console.log(backtestChartdatas); // a 가, b 나, c 다
+	if (tagboxElements.length >= 1 && strategies.length >= 1 && ratioSum == 1) {
+		$.ajax({
+			url: '/api/chartdata',
+			contentType: "application/json",
+			data: JSON.stringify({
+				coins: coinTickers,
+				ratios: coinRatios,
+				strategies: strategies
+			}),
+			type: 'POST',
+			dataType: 'json', //서버에서 리턴하는 데이터를 무엇으로 인식할지 지정 
+			success: function(datas) {
+				for (var data in datas) {
+					var g = document.createElement("div");
+					g.setAttribute("id", "chartDiv"+data);
+					
+					document.body.appendChild(g);
+					
+					datas[data].endDates = datas[data].endDates.map(val=> {
+						let dt = new Date(val*1000);
+						return dt.toLocaleDateString({format:"yy-mm-dd"});
+					});
+					var chart = Highcharts.chart('chartDiv'+data, {
+						chart: {
+							zoomType: 'xy'
+						},
+						title: {
+							text: '백테스트 결과 :' +datas[data].coinNames +" + "+ datas[data].strategyName,
+							align: 'left'
+						},
+						xAxis: [{
+							categories: datas[data].endDates,
+							crosshair: true,
+						}],
+						yAxis: [{ // Primary yAxis
+							labels: {
+								format: '{value}원',
+								style: {
+									color: Highcharts.getOptions().colors[1]
+								}
+							},
+							title: {
+								text: '종가',
+								style: {
+									color: Highcharts.getOptions().colors[1]
+								}
+							}
+						}, { // Secondary yAxis
+							title: {
+								text: '현금흐름',
+								style: {
+									color: Highcharts.getOptions().colors[0]
+								}
+							},
+							labels: {
+								format: '{value}',
+								style: {
+									color: Highcharts.getOptions().colors[0]
+								}
+							},
+							opposite: true
+						}],
+						tooltip: {
+							shared: true
+						},
+						legend: {
+							align: 'left',
+							x: 80,
+							verticalAlign: 'top',
+							y: 60,
+							floating: true,
+							backgroundColor:
+								Highcharts.defaultOptions.legend.backgroundColor || // theme
+								'rgba(255,255,255,0.25)'
+						},
+						series: [{
+							name: 'price',
+							type: 'line',
+							yAxis: 0,
+							data: datas[data].combinationPrice,
+							tooltip: {
+								valueSuffix: ' 원'
+							}
 
-			for (var backtestChartdata in backtestChartdatas) {
-				console.log(backtestChartdata); // a 가, b 나, c 다
-			}*/
-		
+						}, {
+							name: 'cashflow',
+							type: 'line',
+							yAxis: 1,
+							data: datas[data].totalCashFlow,
+							tooltip: {
+								valueSuffix: ' v'
+							}
+						}]
+					});
+				}
+			},
+			error: function() {
 
+			}
+		});
+	} else {
+		const ratios = document.querySelectorAll("input[id=ratio]");
+		ratios.forEach((ratio) => {
+			ratio.classList.add('invalid');
+		})
 	}
 })
