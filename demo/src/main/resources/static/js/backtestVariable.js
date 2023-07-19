@@ -62,14 +62,17 @@ $("#submitbtn").click((e) => {
 							animation: false
 						},
 						title: {
-							text: '백테스트 결과 :' + datas[data].coinNames + " + " + datas[data].strategyName,
+							text: '백테스트 결과 : ' + datas[data].coinNames + " + " + datas[data].strategyName,
 							align: 'left'
 						},
+						
 						xAxis: [{
+							
 							tickInterval: 365,
 							title: '',
 							categories: datas[data].endDates,
 							crosshair: true,
+							
 						}],
 						yAxis: [{ // Primary yAxis
 							labels: {

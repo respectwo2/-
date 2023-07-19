@@ -160,22 +160,28 @@
 		<div class="col-lg-8 d-flex align-items-stretch">
 			<div class="card w-100">
 				<div class="card-body p-4">
-					<h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
+					<h5 class="card-title fw-semibold mb-4">Today Price</h5>
+					<br>
 					<div class="row mt-4">
 						<div class="col-md-6">
 							<div class="hstack p-3 border rounded mb-3 mb-md-0">
 								<div class="ms-3">
-									<h6 class="mb-0 fs-3">고가</h6>
-									<span id="high_price" class="fs-2" ></span>
+									<h5 class="mb-0 fs-5">최고가</h5>
+									<br>
+									<span id="high_price" class="fs-4" ></span>
+									<span>원</span>
 								</div>
 							</div>
+							<br>
 						</div>
 						<div class="col-md-6">
 							<div class="hstack p-3 border rounded">
 								<div class="ms-3">
-									<h6 class="mb-0 fs-3">저가</h6>
-									 <span class="fs-2" id = "low_price">
+									<h5 class="mb-0 fs-5">최저가</h5>
+									<br>
+									 <span class="fs-4" id = "low_price">
 										</span>
+										<span>원</span>
 								</div>
 							</div>
 						</div>

@@ -27,11 +27,7 @@
 		Highcharts.chart('container', {
 
 			title: {
-				text: 'SAN API using Highcharts'
-			},
-
-			subtitle: {
-				text: 'Made by Zatcepin with love'
+				text: ''
 			},
 
 			yAxis: {
