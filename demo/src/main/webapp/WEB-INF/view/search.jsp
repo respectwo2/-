@@ -38,7 +38,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-
 $(document).ready(function() {
     $("#searchForm").submit(function(e) {
         e.preventDefault(); 
@@ -48,44 +47,6 @@ $(document).ready(function() {
         window.location.href = url;
     });
 });
-
-
-
-
-//AJAX로 정보 띄우는 코드
-
- /* $(document).ready(function() {
-    $("#searchForm").submit(function(e) {
-        e.preventDefault(); 
-
-        var searchTerm = $("#searchInput").val();
-
-        var data = {};
-
-        if (searchTerm) {
-            if (isNaN(searchTerm)) {
-                data.ticker = searchTerm;
-            } else {
-                data.ticker_id = searchTerm;
-            }
-        }
-
-        if (searchTerm && isNaN(searchTerm)) {
-            data.ticker_name = searchTerm;
-        }
-
-        $.ajax({
-            url: "/exchange/tickerinfo",
-            type: "GET",
-            data: data,
-            success: function(response) {
-                $("#searchResults").html(response); 
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
-    });
-}); */
-</script></body>
+</script>
+</body>
 </html>

@@ -16,35 +16,35 @@
   {
   "symbols": [
     {
-      "description": "ë¹„íŠ¸ì½”ì¸",
+      "description": "ë¹??¸ì???",
       "proName": "UPBIT:BTCKRW"
     },
     {
-      "description": "ì´ë”ë¦¬ì›€",
+      "description": "?´ë??ë¦¬ì??",
       "proName": "UPBIT:ETHKRW"
     },
     {
-      "description": "ë©”íƒˆ",
+      "description": "ë©???",
       "proName": "UPBIT:MTLKRW"
     },
     {
-      "description": "ë„ì§€ì½”ì¸",
+      "description": "??ì§?ì½???",
       "proName": "UPBIT:DOGEKRW"
     },
     {
-      "description": "ë¦¬í”Œ",
+      "description": "ë¦¬í??",
       "proName": "UPBIT:XRPKRW"
     },
     {
-      "description": "ìŠ¤íƒìŠ¤",
+      "description": "?¤í????",
       "proName": "UPBIT:STXKRW"
     },
     {
-      "description": "ì—ì´ë¸Œ",
+      "description": "???´ë?",
       "proName": "UPBIT:AAVEKRW"
     },
     {
-      "description": "í€€í…€",
+      "description": "????",
       "proName": "UPBIT:QTUMKRW"
     }
   ],

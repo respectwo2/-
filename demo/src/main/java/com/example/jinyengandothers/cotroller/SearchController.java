@@ -19,13 +19,13 @@ import com.example.jinyengandothers.service.SearchService;
 public class SearchController {
 	
 	@Autowired
+	CoinInfoService coinInfoService;
+	
+	@Autowired
 	private SearchService searchService;
 	
 	@Autowired
-	CryptoCompareNewsService compareNewsService;
-	
-	@Autowired
-	CoinInfoService coinInfoService;
+	private CryptoCompareNewsService compareNewsService;
 	
 	
 	@GetMapping(value = {"/main", "/"})
@@ -78,8 +78,4 @@ public class SearchController {
 		List<NewsDto> newsList = compareNewsService.getNews(category);
 		model.addAttribute("newsList", newsList);
 		return "coinNews";
-	}
-	
-
-
-}
+	}}
