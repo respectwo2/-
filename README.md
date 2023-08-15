@@ -61,10 +61,9 @@
 
 ### 팀원 소개
 
-1. 박성욱 (https://github.com/respectwo2/)
-2. 이정훈 (https://github.com/mij9929)
-3. 박진영 (https://github.com/jyp5555)
-
+박성욱 (https://github.com/respectwo2/)
+이정훈 (https://github.com/mij9929)
+박진영 (https://github.com/jyp5555)
 
 
 https://www.youtube.com/watch?v=lept41P80Sw
