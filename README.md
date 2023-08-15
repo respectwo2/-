@@ -40,6 +40,21 @@
    <img src="https://github.com/respectwo2/Coinnable/assets/109124287/dd7bdcca-4f82-4b25-a99a-36922cf6bfff" alt="trend" width="70%">
 
 
+
+
+
+## 팀원 소개
+
+1. 박성욱
+   - 깃허브: [GitHub 프로필]([https://github.com/박성욱의_깃허브_주소](https://github.com/respectwo2/))
+
+2. 이정훈
+   - 깃허브: [GitHub 프로필]([https://github.com/이정훈의_깃허브_주소](https://github.com/respectwo2/))
+
+3. 박진영
+   - 깃허브: [GitHub 프로필]([https://github.com/박진영의_깃허브_주소](https://github.com/respectwo2/))
+
+
 ## 기술 스택
 
 ### 프론트엔드:
@@ -51,3 +66,5 @@
 - **프레임워크:** Spring Boot
 - **빌드 도구:** Maven
 - **데이터베이스:** MySQL
+
+
