@@ -16,11 +16,30 @@
 1. 코인의 시세정보와 함께, 업비트와 미국의 거래소인 바이낸스의 가격 차(김치프리미엄)을 계산
 
 
-
 2. 시장의 흐름을 파악할 수 있는 지표
 
 
 3. 카테고리를 통해 코인별 최신 기사들을 추적
 
 
-4. 
+4. 백테스팅 기능
+
+
+5. 주간 변동량과 시세변화량
+
+
+
+
+기술 스택
+
+Backend
+
+Language | Java 11
+
+Framework | Spring 5.3.21 (Spring Boot 2.7.1, Spring MVC 5.3.1, Spring Data JPA 2.7.1)
+
+Build Tool | Gradle 7.4.1
+
+Test | Junit 5
+
+Docs | Swagger
