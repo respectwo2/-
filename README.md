@@ -9,29 +9,32 @@
 ## 주요 기능
 1. 코인의 시세정보와 함께, 업비트와 미국의 거래소인 바이낸스의 가격 차(김치프리미엄)을 계산
 <img src="https://github.com/respectwo2/Coinnable/assets/109124287/418d1369-590b-4bcc-ac87-a2f719585cea" alt="home" width="70%">
-
-
+<br>
+<br>
 2. 시장의 흐름을 파악할 수 있는 지표
 <img src="https://github.com/respectwo2/Coinnable/assets/109124287/c038d7a3-bedb-4641-b8ff-99faa971fbbe" alt="index" width="70%">
-
-
+<br>
+<br>
 3. 카테고리를 통해 코인별 최신 기사들을 추적
 <img src="https://github.com/respectwo2/Coinnable/assets/109124287/320b29aa-d8fe-433d-ba8f-675345922d43" alt="news" width="70%">
-
+<br>
+<br>
 4. 백테스팅 기능
 <img src="https://github.com/respectwo2/Coinnable/assets/109124287/fe0ee291-5c16-40bc-a3a9-f88875d3d0aa" alt="backtest" width="70%">
-
+<br>
+<br>
 5. 주간 변동량과 시세변화량
-<img src="https://github.com/respectwo2/Coinnable/assets/109124287/dd7bdcca-4f82-4b25-a99a-36922cf6bfff" alt="trend" width="50%">
-
+<img src="https://github.com/respectwo2/Coinnable/assets/109124287/dd7bdcca-4f82-4b25-a99a-36922cf6bfff" alt="trend" width="70%">
+<br>
+<br>
 ## 기술 스택
 
 ### 프론트엔드:
-- 언어: HTML, CSS, JavaScript
-- 프레임워크/라이브러리: 부트스트랩
+- **기술:** HTML, CSS, JavaScript
+- **프레임워크/라이브러리:** 부트스트랩
 
 ### 백엔드:
-- 언어: Java
-- 프레임워크: Spring Boot
-- 빌드 도구: Maven
-- 데이터베이스: MySQL
+- **언어:** Java
+- **프레임워크:** Spring Boot
+- **빌드 도구:** Maven
+- **데이터베이스:** MySQL
