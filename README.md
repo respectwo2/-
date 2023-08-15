@@ -32,14 +32,14 @@
 
 기술 스택
 
-Backend
+## 프론트엔드:
 
-Language | Java 11
+- **언어:** HTML, CSS, JavaScript
+- **프레임워크/라이브러리:** 부트스트랩
 
-Framework | Spring 5.3.21 (Spring Boot 2.7.1, Spring MVC 5.3.1, Spring Data JPA 2.7.1)
+## 백엔드:
 
-Build Tool | Gradle 7.4.1
-
-Test | Junit 5
-
-Docs | Swagger
+- **언어:** Java
+- **프레임워크:** Spring Boot
+- **빌드 도구:** Maven
+- **데이터베이스:** MySQL
