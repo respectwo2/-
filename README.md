@@ -22,7 +22,7 @@
 <img src="https://github.com/respectwo2/Coinnable/assets/109124287/fe0ee291-5c16-40bc-a3a9-f88875d3d0aa" alt="backtest" width="50%">
 
 5. 주간 변동량과 시세변화량
-<img src="https://github.com/respectwo2/Coinnable/assets/109124287/dd7bdcca-4f82-4b25-a99a-36922cf6bfff" alt="trend" width="25%">
+<img src="https://github.com/respectwo2/Coinnable/assets/109124287/dd7bdcca-4f82-4b25-a99a-36922cf6bfff" alt="trend" width="50%">
 
 ## 기술 스택
 
