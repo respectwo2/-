@@ -59,7 +59,7 @@
 
 
 
-## 팀원 소개
+### 팀원 소개
 
 1. 박성욱 (https://github.com/respectwo2/)
 2. 이정훈 (https://github.com/mij9929)
