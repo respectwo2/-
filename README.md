@@ -20,9 +20,14 @@
    <img src="https://github.com/respectwo2/Coinnable/assets/109124287/320b29aa-d8fe-433d-ba8f-675345922d43" alt="news" width="70%">
 
 4. 백테스팅 기능
+
+
    <img src="https://github.com/respectwo2/Coinnable/assets/109124287/fe0ee291-5c16-40bc-a3a9-f88875d3d0aa" alt="backtest" width="70%">
 
 5. 주간 변동량과 시세변화량
+
+
+
    <img src="https://github.com/respectwo2/Coinnable/assets/109124287/dd7bdcca-4f82-4b25-a99a-36922cf6bfff" alt="trend" width="70%">
 
 ## 기술 스택
